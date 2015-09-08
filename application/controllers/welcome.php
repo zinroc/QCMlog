@@ -97,6 +97,27 @@ class Welcome extends CI_Controller {
         }
 
     }
+    public function updateExperiment() {
+        $id = $this->input->post("id");
+        $description = $this->input->post("description");
+        $coating = $this->input->post("coating");
+        $solution = $this->input->post("solution");
+        $sensor = $this->input->post("sensor");
+        $module = $this->input->post("module");
+        $conc = $this->input->post("conc");
+        $flow = $this->input->post("flow");
+
+
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->updateExperiment($id, $description, $coating, $solution, $sensor, $module, 
+            $conc, $flow);
+        if ($result){
+            $this->printJSONSuccess("updated experiment " . $id);
+        } else {
+            $this->printJSONDatabaseError();
+        }
+
+    }
 
     public function addExperiment() {
         $description = $this->input->post("description");
@@ -106,12 +127,11 @@ class Welcome extends CI_Controller {
         $module = $this->input->post("module");
         $conc = $this->input->post("conc");
         $flow = $this->input->post("flow");
-        $df = $this->input->post("df");
-        $dd = $this->input->post("dd");
+
 
         $this->load->model('qcm_model');
         $result = $this->qcm_model->addExperiment($description, $coating, $solution, $sensor, $module, 
-            $conc, $flow, $df, $dd);
+            $conc, $flow);
         if ($result){
             $this->printJSON(array("id"=>$result));
         } else {
@@ -220,6 +240,18 @@ class Welcome extends CI_Controller {
             $this->printJSONDatabaseError();
         }
 
+    }
+
+    public function getExperiment (){
+        $id = $this->input->post("id");
+
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->getExperiment($id);
+        if ($result){
+            $this->printJSON(array("experiment" => $result));
+        } else {
+            $this->printJSONDatabaseError();
+        }
     }
 
     public function getCoatings() {

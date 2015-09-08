@@ -21,7 +21,7 @@
               }
           ?>
 
-          <title>Sergei Vilbik &middot; <?= $data["page_title"]; ?></title>
+          <title>QCM-D Log &middot; <?= $data["page_title"]; ?></title>
     </head>
     <body ng-app="App">
         <!-- load navbar as partial view -->

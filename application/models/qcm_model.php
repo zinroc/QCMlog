@@ -3,6 +3,12 @@
 class Qcm_Model extends CI_MODEL {
 
 
+	function getExperiment($id){
+		$query = $this->db->get_where("experiments", array("id"=>$id));
+		$result = $query->row_array();
+		return $result;
+	}
+
 	function getCoatings (){
 		$query = $this->db->get("coatings");
 		$coatings = $query->result_array();
@@ -58,6 +64,15 @@ class Qcm_Model extends CI_MODEL {
 			return false;
 		}
 
+	}
+
+	function updateExperiment ($id, $description, $coating, $solution, $sensor, $module, 
+        $conc, $flow) {
+		$sql = "UPDATE experiments SET description=?, coating=?, solution=?, sensor=?, module=?, conc_inlet=?, flow_rate=? WHERE id=?";
+		$arr = array("description"=>$description, "coating"=>$coating, "solution"=>$solution,
+			"sensor"=>$sensor, "module"=>$module, "conc_inlet"=>$conc, "flow_rate"=>$flow, "id"=>$id);
+		$this->db->query($sql, $arr);
+		return true;
 	}
 
 	function addExperiment ($description, $coating, $solution, $sensor, $module, 

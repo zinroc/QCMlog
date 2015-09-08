@@ -1,6 +1,9 @@
 angular.module('App.controllers').controller('qcmController', function ($scope, gameAPIservice, $timeout) {
 	"use strict";
 
+	$scope.editExperiment = {};
+	$scope.editExperiment.id = null;
+
 	$scope.para = {};
 	$scope.coatingPara = {};
 	$scope.solventPara = {};
@@ -10,9 +13,15 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	$scope.tagPara = {};
 
 	$scope.experimentID = null;
+	$scope.loadedExperiment = null;
+
 
 	$scope.measure = {};
 
+	$scope.error = {};
+	$scope.error.msg = null;
+
+	$scope.expCoating = {};
 	$scope.input = {};
 	$scope.input.coating = false;
 	$scope.input.solvent = false;
@@ -22,17 +31,30 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	$scope.input.tag = false;
 	$scope.input.measure = false;
 
+	$scope.added = {};
+	$scope.added.experiment = false;
+	$scope.added.experimentTags = false;
+	$scope.added.experimentMeasures = false;
+
+	$scope.loading = {};
+	$scope.loading.experimentAdd = false;
+	$scope.loading.experimentEdit = false;
+
+	$scope.loaded = {};
+	$scope.loaded.experiment = false;
+	$scope.loaded.parametersPlaced = false;
+
 	$scope.solvent = {}; 
 	$scope.solvent.name = null;
 
-	$scope.solution = {};
-	$scope.solution.name = null;
+	$scope.expSolution = {};
+	$scope.expSolution.name = null;
 
-	$scope.sensor = {};
-	$scope.sensor.name = null;
+	$scope.expSensor = {};
+	$scope.expSensor.name = null;
 
-	$scope.module = {};
-	$scope.module.name = null;
+	$scope.expModule = {};
+	$scope.expModule.name = null;
 
 	$scope.tagIndex = [0];
 	$scope.measIndex = [0];
@@ -48,8 +70,19 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	$scope.maxTagLength = 0;
 
 	$scope.success = {};
-	$scope.error = {};
 
+
+	$scope.resetLoadingScreen = function (){
+		$scope.loading.experimentAdd = false;
+		$scope.added.experiment = false;
+		$scope.added.experimentMeasures = false;
+		$scope.added.experimentTags = false;
+
+		$scope.loading.experimentEdit = false;
+		$scope.loaded.experiment = false;
+
+		$scope.loading.experimentUpdate = false;
+	};
 
 	$scope.increaseTags = function (){
 		$scope.maxTagLength++;
@@ -65,6 +98,10 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.measVals[$scope.maxMeasLength] = {};
 		$scope.measVals[$scope.maxMeasLength].name = null;
 		console.log($scope.maxMeasLength, $scope.measIndex, $scope.measVals);
+	};
+
+	$scope.stopEditting = function (){
+		$scope.editExperiment.id = null;
 	};
 
 	$scope.decreaseMeasures = function(){
@@ -101,6 +138,40 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
 		console.log($scope.maxTagLength, $scope.tagIndex, $scope.tagVals);
 
+	};
+
+	$scope.placeParameters = function (){
+		$scope.para.desc = $scope.loadedExperiment.description;
+		$scope.expCoating.name = $scope.loadedExperiment.coating;
+		$scope.expSolution.name = $scope.loadedExperiment.solution;
+		$scope.expModule.name = $scope.loadedExperiment.module;
+		$scope.expSensor.name = $scope.loadedExperiment.sensor;
+		$scope.para.flow = parseInt($scope.loadedExperiment.flow_rate);
+		$scope.para.conc = parseFloat($scope.loadedExperiment.conc_inlet);
+		console.log($scope.para.flow, $scope.para.conc, "flow + conc");
+		$scope.loaded.parametersPlaced = true;
+	};
+
+	$scope.loadExperiment = function(){
+		console.log($scope.editExperiment.id);
+		$scope.loading.experimentEdit = true;
+
+		gameAPIservice.getExperiment($scope.editExperiment.id).success(function (response){
+			"use strict";
+			console.log("Tried to fetch experiment " + $scope.editExperiment.id);
+			console.log(response);
+	        if (response.hasOwnProperty('status') && response.status === 'error') {
+	            $scope.error.msg = response.msg;
+	            $scope.success.msg = null;
+
+	        } else {
+	            $scope.success.msg = "fetched experiment " + $scope.editExperiment.id;
+	            $scope.error.msg = null;
+	            $scope.loadedExperiment = response.experiment;
+	            $scope.loaded.experiment = true;
+	            $scope.placeParameters();
+	        }
+		});
 	};
 
 	$scope.getMeasures = function (){
@@ -230,7 +301,6 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	    });
 	};
 
-
 	$scope.getCoatings();
 	$scope.getSolvents();
 	$scope.getSolutions();
@@ -268,8 +338,6 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
     };
 
     $scope.addCoating = function (){
-    	//console.log($scope.coatingPara.name, $scope.coatingPara.solvent, $scope.coatingPara.thickness, 
-    	//	$scope.coatingPara.thickness_var, $scope.coatingPara.rms);
 
     	gameAPIservice.addCoating($scope.coatingPara.name, $scope.solvent.name, $scope.coatingPara.thickness, 
     		$scope.coatingPara.thickness_var, $scope.coatingPara.rms).success(function (response){
@@ -395,12 +463,33 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     };
 
-    $scope.addExperiment = function (){
+    $scope.updateExperiment = function (){
+    	console.log($scope.editExperiment.id);
 
-		console.log($scope.para.desc, $scope.coating.name, $scope.solution.name, $scope.sensor.name, $scope.module.name,
+    	$scope.loading.experimentUpdate = true;
+
+		console.log("UPDATE EXPERIMENT WITH PARAMS:", $scope.editExperiment.id, $scope.para.desc, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
 			$scope.para.conc, $scope.para.flow);
 
-		gameAPIservice.addExperiment($scope.para.desc, $scope.coating.name, $scope.solution.name, $scope.sensor.name, $scope.module.name,
+
+		gameAPIservice.updateExperiment($scope.editExperiment.id, $scope.para.desc, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
+		$scope.para.conc, $scope.para.flow).success(function (response){
+			"use strict";
+
+			console.log("Tried to update experiment " + $scope.editExperiment.id);
+			console.log(response);
+			$scope.loading.experimentUpdate = false;
+		});
+    };
+
+    $scope.addExperiment = function (){
+
+    	$scope.loading.experimentAdd = true;
+
+		console.log("ADD EXPERIMENT WITH PARAMS:", $scope.para.desc, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
+			$scope.para.conc, $scope.para.flow);
+
+		gameAPIservice.addExperiment($scope.para.desc, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
 		$scope.para.conc, $scope.para.flow).success(function (response){
 			"use strict";
 
@@ -418,24 +507,37 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
 					console.log("Tried to add experiment tag");
 					console.log(response);
+					console.log(i, $scope.tagVals.length);
+					if (i === $scope.tagVals.length){
+						$scope.added.experimentTags = true;
+					}
 				});
 
 			}
+			if ($scope.tagVals.length ===0){
+				$scope.added.experimentTags = true;
+			}
 
 
-			for(i=0; i<$scope.measVals.length; i++){
-				console.log($scope.experimentID, $scope.measVals[i].name, $scope.measVals[i].val);
+			for(var j=0; j<$scope.measVals.length; j++){
+				console.log($scope.experimentID, $scope.measVals[j].name, $scope.measVals[j].val);
 
-				gameAPIservice.addExperimentMeasure($scope.experimentID, $scope.measVals[i].name, $scope.measVals[i].val).success(function (response){
+				gameAPIservice.addExperimentMeasure($scope.experimentID, $scope.measVals[j].name, $scope.measVals[j].val).success(function (response){
 					"use strict";
 
 					console.log("Tried to add experiment measure");
 					console.log(response);
+					console.log(j, $scope.measVals.length);
+
+					if (j === $scope.measVals.length){
+						$scope.added.experimentMeasures = true;
+					}
 				});
 			}
-
-
-
+			if ($scope.measVals.length ===0){
+				$scope.added.experimentMeasures = true;
+			}
+			$scope.added.experiment = true;
 		});
 
     };
