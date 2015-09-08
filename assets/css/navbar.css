@@ -1,0 +1,25 @@
+body {
+	padding-top: 70px;
+}
+
+.navbar-right {
+    padding-right: 20px;
+}
+
+.navbar-right .navbar-text#username, .navbar-text#charname {
+    color: #ccc !important;
+}
+
+.navbar p {
+	margin-right: 3px;
+	margin-left: 3px;
+	/*padding: auto 0;*/
+}
+
+#header {
+	background-color: #000037;
+}
+
+#tabs {
+	font-size: 100%; 
+}

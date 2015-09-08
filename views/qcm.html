@@ -1,0 +1,207 @@
+<div ng-controller="qcmController">
+
+
+	<ul class="nav nav-tabs">
+        <li class="active"><a href="#upload" data-toggle="tab" ng-click="changeTab($event)">Upload</a></li>
+        <li><a href="#view" data-toggle="tab" ng-click="changeTab($event)">View</a></li>
+        <li><a href="#analyze" data-toggle="tab" ng-click="changeTab($event)">Analyze</a></li>
+    </ul>
+
+    <div class="tab-content" ng-cloak>
+    	<div class="tab-pane active" id="upload">
+			<h1>Record Experiment Data: </h1>
+
+		    <input type="file" name="file" required="true" ng-model="para.file" /> <br>
+
+			<h2> Experimental Parameters </h2>
+
+
+			<h4>Description: </h4> <br>
+			<textarea rows="4" cols="50" ng-model="para.desc"></textarea> 
+			<br><br>
+
+			<h4> Coating: </h4>
+			<select class="form-control" ng-model="coating.name">
+            	<option ng-selected="!coating.name" value=false>---View Coatings---</option>
+                <option value="{{coating.name}}" ng-repeat="coating in coatings">{{coating.name.toTitleCase()}}</option>
+            </select>
+			<p ng-if="!input.coating" class="btn btn-primary" ng-click="showCoatingInput()"> Add coating</p>
+
+			<div ng-if="input.coating" id="addBox"> 
+
+					New Coating Info: <br><br>
+
+					Name: <input type="text" ng-model="coatingPara.name"/><br> 
+					solvent: 
+
+					<select class="form-control" ng-model="solvent.name">
+		            	<option ng-selected="!solvent.name" value=false>---View Solvents---</option>
+		                <option value="{{solvent.name}}" ng-repeat="solvent in solvents">{{solvent.name.toTitleCase()}}</option>
+		            </select>
+					<p ng-if="!input.solvent" class="btn btn-primary" ng-click="showSolventInput()"> Add Solvent</p>
+
+					<div ng-if="input.solvent" id="addBox">
+						New Solvent Info <br><br>
+
+						Name: <input type="text" ng-model="solventPara.name"/><br>
+
+						<p class="btn btn-primary" ng-click="addSolvent()"> Add Solvent</p>
+						<p class="btn btn-primary" ng-click="cancelSolvent()"> Cancel</p>
+
+					</div>
+
+					<br>
+					thickness: <input type="number" ng-model="coatingPara.thickness"/> [um] <br>
+					thickness variability: <input type="number" ng-model="coatingPara.thickness_var"/> [um]<br>
+					rms: <input type="number" ng-model="coatingPara.rms"/> [nm]<br> <br>
+
+					<p class="btn btn-primary" ng-click="addCoating()"> Add Coating</p>
+					<p class="btn btn-primary" ng-click="cancelCoating()"> Cancel</p>
+
+
+			</div>
+			<br><br>
+			<h4> Solution: </h4>
+			<select class="form-control" ng-model="solution.name">
+            	<option ng-selected="!solution.name" value=false>---View Solutions---</option>
+                <option value="{{solution.name}}" ng-repeat="solution in solutions">{{solution.name.toTitleCase()}}</option>
+            </select>
+			<p ng-if="!input.solution" class="btn btn-primary" ng-click="showSolutionInput()"> Add Solution</p>
+
+			<div ng-if="input.solution" id="addBox">
+				New Solution Info: <br><br>
+
+				Name: <input type="text" ng-model="solutionPara.name"/><br>
+
+				<p class="btn btn-primary" ng-click="addSolution()"> Add Solution</p>
+				<p class="btn btn-primary" ng-click="cancelSolution()"> Cancel</p>
+
+			</div>
+			<br><br>
+
+			<h4>Sensor: </h4> <br>
+			<select class="form-control" ng-model="sensor.name">
+            	<option ng-selected="!sensor.name" value=false>---View Sensors---</option>
+                <option value="{{sensor.name}}" ng-repeat="sensor in sensors">{{sensor.name.toTitleCase()}}</option>
+            </select>
+			<p ng-if="!input.sensor" class="btn btn-primary" ng-click="showSensorInput()"> Add Sensor</p>
+
+			<div ng-if="input.sensor" id="addBox">
+				New Sensor Info: <br><br>
+
+				Name: <input type="text" ng-model="sensorPara.name"/><br>
+
+				<p class="btn btn-primary" ng-click="addSensor()"> Add Sensor</p>
+				<p class="btn btn-primary" ng-click="cancelSensor()"> Cancel</p>
+
+			</div>
+
+			<br><br>
+			<h4>Module: </h4> <br> 
+
+			<select class="form-control" ng-model="module.name">
+            	<option ng-selected="!module.name" value=false>---View Modules---</option>
+                <option value="{{module.name}}" ng-repeat="module in modules">{{module.name.toTitleCase()}}</option>
+            </select>
+			<p ng-if="!input.module" class="btn btn-primary" ng-click="showModuleInput()"> Add Module</p>
+
+			<div ng-if="input.module" id="addBox">
+				New Module Info: <br><br>
+
+				Name: <input type="text" ng-model="modulePara.name"/><br>
+
+				<p class="btn btn-primary" ng-click="addModule()"> Add Module</p>
+				<p class="btn btn-danger" ng-click="cancelModule()"> Cancel</p>
+
+			</div>
+
+			<br><br>
+			<h4> Inlet concentration: </h4> <input type="number" ng-model="para.conc"/> [ug/mL] <br>
+
+			<h4> Flow Rate:</h4> <input type="number" ng-model="para.flow"/> [ul/min] <br>
+
+			<h4> Classifier Tags: </h4> 
+
+			<div ng-repeat="index in tagIndex">
+				<div ng-if="!input.tag">
+					<select class="form-control" ng-model="tagVals[index].name">
+		            	<option ng-selected="!tagVals[index].name" value=false>---View Tags---</option>
+		                <option value="{{tag.name}}" ng-repeat="tag in tags">{{tag.name.toTitleCase()}}</option>
+		            </select>
+				</div>
+			</div>
+
+            <p class="btn btn-primary" ng-click="increaseTags()"> + </p>
+            <p ng-if="maxTagLength > 0" class="btn btn-primary" ng-click="decreaseTags()"> - </p>
+
+		    <p ng-if="!input.tag" class="btn btn-primary" ng-click="showTagInput()"> Design New Tag</p>
+
+
+            <div id="addBox" ng-if="input.tag">
+				Name: <input type="text" ng-model="tagPara.name"/><br>
+				<div ng-if="tagPara.name && input.tag">
+					<p class="btn btn-primary" ng-click="addTag()"> Create Tag </p>
+				</div>
+					<p class="btn btn-danger" ng-click="cancelTag()"> Cancel </p>
+
+            </div>
+
+			<br>
+
+			------------------------------------------------<br>
+			<h2>Measured Parameters: </h2><br> 
+
+			<div ng-repeat="index in measIndex">
+				<div ng-if="!input.measure">
+					<select class="form-control" ng-model="measVals[index].name">
+		            	<option ng-selected="!measVals[index].name" value=false>---View Parameters---</option>
+		                <option value="{{measure.name}}" ng-repeat="measure in measures">{{measure.name.toTitleCase()}}</option>
+		            </select>
+		    		<div ng-if="measVals[index].name">
+		    			Value: <input type="number" ng-model="measVals[index].val"/>
+		    		</div>
+				</div>
+			</div>
+
+            <p class="btn btn-primary" ng-click="increaseMeasures()"> + </p>
+            <p ng-if="maxMeasLength > 0" class="btn btn-primary" ng-click="decreaseMeasures()"> - </p>
+
+		    <p ng-if="!input.measure"  class="btn btn-primary" ng-click="showMeasureInput()"> Design New Parameter</p>
+
+
+            <div id="addBox" ng-if="input.measure">
+				Name: <input type="text" ng-model="measure.name"/><br>
+				<div ng-if="measure.name && input.measure">
+					<p class="btn btn-primary" ng-click="addMeasure()"> Create Measure </p>
+				</div>
+					<p class="btn btn-danger" ng-click="cancelMeasure()"> Cancel </p>
+
+            </div>
+            <br><br>
+			<p class="btn btn-primary" ng-click="addExperiment()"> Submit</p> <br>
+
+
+		</div>
+
+
+
+    	<div class="tab-pane " id="view">
+
+			View recorded experimental conditions information from experiment ___________  <br> <br> 
+
+			Run curve analysis on this experiment <br> <br> 
+
+			View results / Record results  <br> <br>
+		</div>
+
+
+
+    	<div class="tab-pane " id="analyze">
+
+			Run a XYZ analysis using ABC subset of data available for experiments ___, ___, etc. 
+		</div>
+
+	</div>
+
+
+</div>

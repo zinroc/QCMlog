@@ -1,0 +1,1189 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"char",
+				"characterInfo"
+			],
+			[
+				"hostile",
+				"hostile"
+			],
+			[
+				"activeT",
+				"activeTarget"
+			],
+			[
+				"coll",
+				"collectionInfo"
+			],
+			[
+				"deckC",
+				"deckCard"
+			],
+			[
+				"ambitionLi",
+				"ambitionLink"
+			],
+			[
+				"secTraitV",
+				"secTraitVarInfo"
+			],
+			[
+				"trait",
+				"traitInSec"
+			],
+			[
+				"row",
+				"row_array"
+			],
+			[
+				"we",
+				"weight"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"traitIn",
+				"traitInSec"
+			],
+			[
+				"resul",
+				"result_array"
+			],
+			[
+				"updateDar",
+				"updateDartDrag"
+			],
+			[
+				"dartTargEnt",
+				"dartTargEntChecked"
+			],
+			[
+				"dartTarg",
+				"dartTargEntChecked"
+			],
+			[
+				"nart",
+				"narTargTypes"
+			],
+			[
+				"narTargT",
+				"narTargTypeIndex"
+			],
+			[
+				"narT",
+				"narTargTypeIndex"
+			],
+			[
+				"card_ab",
+				"card_absolute_traits"
+			],
+			[
+				"card_",
+				"card_absolute_feedback"
+			],
+			[
+				"card_modif",
+				"card_modifier_removes"
+			],
+			[
+				"card_modifier_re",
+				"card_modifier_requirements"
+			],
+			[
+				"dart",
+				"dart"
+			],
+			[
+				"background",
+				"background-position"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"template",
+				"templateInfo"
+			],
+			[
+				"tem",
+				"template"
+			],
+			[
+				"max-",
+				"max-height"
+			],
+			[
+				"selected",
+				"selectedCard"
+			],
+			[
+				"DomIn",
+				"DomInFeedbackRelValue"
+			],
+			[
+				"entit",
+				"entities"
+			],
+			[
+				"narTargTy",
+				"narTargType"
+			],
+			[
+				"dom",
+				"dom"
+			],
+			[
+				"nar",
+				"narTarg"
+			],
+			[
+				"tr",
+				"trait"
+			],
+			[
+				"updateCard",
+				"updateCardAbsoluteTrait"
+			],
+			[
+				"prop",
+				"prop"
+			],
+			[
+				"selec",
+				"selectedCard"
+			],
+			[
+				"getCard",
+				"getCardInfo"
+			],
+			[
+				"EntInModTo",
+				"EntInModToAdd"
+			],
+			[
+				"updateCardM",
+				"updateCardModSelfs"
+			],
+			[
+				"getJS",
+				"getJSONWithParams"
+			],
+			[
+				"card_m",
+				"card_modifier_requirements"
+			],
+			[
+				"narTarg",
+				"narTargTypes"
+			],
+			[
+				"charact",
+				"characterIndex"
+			],
+			[
+				"ent",
+				"entity"
+			],
+			[
+				"en",
+				"entity"
+			],
+			[
+				"enti",
+				"entity"
+			],
+			[
+				"narTar",
+				"narTargTypes"
+			],
+			[
+				"relTra",
+				"relTrait_id"
+			],
+			[
+				"narTargInModTo",
+				"narTargInModToRemove"
+			],
+			[
+				"vitalM",
+				"vitalMod"
+			],
+			[
+				"deleteV",
+				"deleteVitalMod"
+			],
+			[
+				"updateVi",
+				"updateVitalMod"
+			],
+			[
+				"createV",
+				"createVitalMod"
+			],
+			[
+				"dele",
+				"deleteVital"
+			],
+			[
+				"upda",
+				"updateVital"
+			],
+			[
+				"relTr",
+				"relTrait_id"
+			],
+			[
+				"Ents",
+				"EntsInRelTraitsVals"
+			],
+			[
+				"rel",
+				"relTraitIndex"
+			],
+			[
+				"setnar",
+				"setnarTargEntCheckboxes"
+			],
+			[
+				"nartT",
+				"narTargType_id"
+			],
+			[
+				"temp",
+				"temporary"
+			],
+			[
+				"relT",
+				"relTrait"
+			],
+			[
+				"relTrait",
+				"relTraits"
+			],
+			[
+				"skills",
+				"skills"
+			],
+			[
+				"tra",
+				"traitName"
+			],
+			[
+				"new_",
+				"new_weight"
+			],
+			[
+				"trait_",
+				"trait_weight"
+			],
+			[
+				"lifest",
+				"lifestlye_id"
+			],
+			[
+				"or",
+				"original_ambition_name"
+			],
+			[
+				"ambit",
+				"ambitionIndex"
+			],
+			[
+				"addL",
+				"addLifestyleTrait"
+			],
+			[
+				"trai",
+				"trait_id"
+			],
+			[
+				"dev",
+				"dev_model"
+			],
+			[
+				"lifestyle_",
+				"lifestyle_traits"
+			],
+			[
+				"life",
+				"lifestyleName"
+			],
+			[
+				"lifesty",
+				"lifestyleCost"
+			],
+			[
+				"lifes",
+				"lifestyleName"
+			],
+			[
+				"activeTar",
+				"activeTargetSet"
+			],
+			[
+				"redraw",
+				"redrawUpdateTimer"
+			],
+			[
+				"redra",
+				"redrawUpdateTimer"
+			],
+			[
+				"target_",
+				"target_model"
+			],
+			[
+				"narra",
+				"narrativeActors"
+			],
+			[
+				"update",
+				"updateTargetList"
+			],
+			[
+				"neutralAttr",
+				"neutralAttraction"
+			],
+			[
+				"hostileAttr",
+				"hostileAttraction"
+			],
+			[
+				"fri",
+				"friendlyAttr"
+			],
+			[
+				"friendlyAttrac",
+				"friendlyAttractions"
+			],
+			[
+				"friend",
+				"friendlyCharacters"
+			],
+			[
+				"friendlyAttr",
+				"friendlyAttraction"
+			],
+			[
+				"frien",
+				"friendlyChar"
+			],
+			[
+				"printJSO",
+				"printJSONDatabaseError"
+			],
+			[
+				"printJ",
+				"printJSONSuccess"
+			],
+			[
+				"play",
+				"playCard"
+			],
+			[
+				"localN",
+				"localNarratives"
+			],
+			[
+				"num",
+				"numActors"
+			],
+			[
+				"narrative",
+				"narrative_model"
+			],
+			[
+				"managem",
+				"managementCheck"
+			],
+			[
+				"printJS",
+				"printJSONError"
+			],
+			[
+				"printJSON",
+				"printJSONSuccess"
+			],
+			[
+				"_",
+				"_SESSION"
+			],
+			[
+				"position",
+				"position_y"
+			],
+			[
+				"position_",
+				"position_x"
+			],
+			[
+				"max",
+				"max_layer"
+			],
+			[
+				"white",
+				"whitelist"
+			],
+			[
+				"draw",
+				"drawRadialGrid"
+			],
+			[
+				"select",
+				"selectHex"
+			],
+			[
+				"max_",
+				"max_layer"
+			],
+			[
+				"H",
+				"Hex_Model"
+			],
+			[
+				"border",
+				"borderTravelCosts"
+			],
+			[
+				"slectedHex",
+				"selectedHexTravelCost"
+			],
+			[
+				"hexa",
+				"hexagon"
+			],
+			[
+				"posi",
+				"position_y"
+			],
+			[
+				"pos",
+				"position_x"
+			],
+			[
+				"initial",
+				"initializeHexNames"
+			],
+			[
+				"ambionLi",
+				"ambitionLifestyleLink"
+			],
+			[
+				"ambitionLifes",
+				"ambitionLifestyleLinks"
+			],
+			[
+				"yourAmb",
+				"yourAmbitionID"
+			],
+			[
+				"addLifesty",
+				"addLifestyleAmbitionLink"
+			],
+			[
+				"lfie",
+				"lifestyle_id"
+			],
+			[
+				"lifestyl",
+				"lifestyleTemplates"
+			],
+			[
+				"ambition",
+				"ambitionTemplates"
+			],
+			[
+				"changeL",
+				"changeLifestyleButtonVal"
+			],
+			[
+				"you",
+				"yourLifestyleID"
+			],
+			[
+				"t",
+				"templateLifestyles"
+			],
+			[
+				"lifestyle",
+				"lifestyleIndex"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/config/database.php",
+			"settings":
+			{
+				"buffer_size": 4418,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/views/login.html",
+			"settings":
+			{
+				"buffer_size": 55,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');\n\n/**\n * Main controller\n * Deals with authentication and central user functionality\n */\nclass GamePlayer extends CI_Controller {\n\n    const PASSWORD_MIN_LENGTH = 5;\n    const CHARNAME_MAX_LENGTH = 20;\n\n    function __construct () {\n        // call the parent constructor\n        parent::__construct ();\n        session_start ();\n    }\n\n    /**\n     * Remap URLs so that only whitelisted methods can be accessed without authentication\n     */\n    public function _remap ($method, $params = array ()) {\n        //enforce access controls to protected functions\n\n        // these functions can be called by users that are not logged in\n        $free_view = array(\n            // unauthenticated views\n            \"index\",\n            \"home\",\n            \"register\",\n            \"register_alpha\",\n            \"registerAlphaEmail\",\n            \"login\",\n            // unauthenticated API calls\n            \"authenticateUser\",\n            \"registerUser\",\n            \"getCharacterInfo\",\n            \"dropCharacter\"\n        );\n\n        if (in_array($method, $free_view)) {\n            return call_user_func_array(array($this, $method), $params);\n        } else if (! isset($_SESSION['email']) && ! in_array($method, $free_view)) {\n            redirect('gameplayer/login');\n        } else if (isset($_SESSION['email']) && \"register\" === $method) {\n            // do not allow logged-in users to register an account\n            redirect('gameplayer/viewAccount');\n        } else {\n            return call_user_func_array(array($this, $method), $params);\n        }\n\n    }\n\n    /**\n     * Index Page for this controller\n     * For now, this is the login page\n     */\n    public function index() {\n        redirect('gameplayer/login', 'refresh');\n    }\n\n    public function home() {\n        redirect('gameplayer/index', 'refresh');\n    }\n\n    /**\n     * Show the deck building page\n     */\n    public function deck () {\n        $data = array(\n            \"page_title\" => \"Build Deck\",\n            \"extra_css\" => array(asset_url() . \"/css/build_deck.css\"),\n            \"extra_js\" => array(asset_url() . \"/js/controllers/build_deck.js\"),\n            \"view\" => \"build_deck\"\n            // \"ng-view\" => true\n        );\n        $this->load->view ('master', array(\"data\" => $data));\n    }\n\n    /**\n     * Go to the registration page.\n     */\n    public function register() {\n        $data = array(\n             \"page_title\" => \"Register\",\n             \"extra_css\" => array(asset_url() . \"/css/auth-style.css\"),\n             \"extra_js\" => array(asset_url() . \"/js/controllers/auth.js\"),\n             \"view\" => \"register\"\n         );\n         $this->load->view ('master', array(\"data\" => $data));\n        //redirect(\"gameplayer/register_alpha\", \"refresh\");\n    }\n\n    /**\n     * Go to the alpha registration page\n     */\n    public function register_alpha() {\n        $data = array(\n            \"page_title\" => \"Register\",\n            \"extra_css\" => array(asset_url() . \"/css/auth-style.css\"),\n            \"extra_js\" => array(asset_url() . \"/js/controllers/register_alpha.js\",),\n            \"view\" => \"register_alpha\"\n        );\n        $this->load->view ('master', array(\"data\" => $data));\n    }\n\n    /**\n     * Go to the login page.\n     */\n    public function login() {\n        if (isset($_SESSION['email'])) {\n            redirect('gameplayer/viewAccount', 'refresh');\n        } else {\n            $data = array(\n                \"page_title\" => \"Login\",\n                \"extra_css\" => array(asset_url() . \"/css/auth-style.css\"),\n                \"extra_js\" => array(asset_url() . \"/js/controllers/auth.js\"),\n                \"view\" => \"login\"\n            );\n            $this->load->view ('master', array(\"data\" => $data));\n        }\n    }\n\n    /**\n     * Deprecated alias for viewAccount\n     */\n    public function select_character() {\n        redirect('gameplayer/viewAccount', 'refresh');\n    }\n\n    /**\n     * Show auction view\n     */\n    public function auction () {\n        $data = array(\n            \"page_title\" => \"Auction House\",\n            \"extra_css\" => array(asset_url() . \"/css/auction.css\"),\n            \"extra_js\" => array(asset_url() . \"/js/controllers/auction.js\"),\n            \"view\" => \"auction\"\n        );\n        $this->load->view ('master', array(\"data\" => $data));\n    }\n\n    /**\n     * Show the character seelction page.\n     */\n    public function viewAccount () {\n        // undo character selection when enterring this view\n        if (isset($_SESSION['char_id'])) {\n            unset($_SESSION['char_id']);\n            unset($_SESSION['char_name']);\n        }\n        $data = array(\n            \"page_title\" => \"Account Overview\",\n            \"extra_css\" => array(asset_url() . \"/css/charsel.css\"),\n            \"extra_js\" => array(asset_url() . \"/js/controllers/charsel.js\"),\n            \"view\" => \"charsel\",\n            // \"ng-view\" => true\n        );\n        $this->load->view ('master', array(\"data\" => $data));\n    }\n\n    /**\n     * Logout, and go to the login page\n     */\n    public function logout() {\n        // remove session variables\n        $_SESSION = array();\n\n        // delete session cookie\n        if (ini_get(\"session.use_cookies\")) {\n            $params = session_get_cookie_params();\n            setcookie(session_name(), '', time() - 42000,\n                $params[\"path\"], $params[\"domain\"],\n                $params[\"secure\"], $params[\"httponly\"]\n            );\n        }\n\n        // destroy session\n        session_destroy();\n\n        redirect('gameplayer/login', 'refresh');\n    }\n\n    /**\n     * Register an email address for the alpha version\n     *\n     * Authentication:\n     * 		none\n     *\n     * Expected POST parameters:\n     * 		email 		The email of the user\n     *\n     * On success:\n     * 		{'status': 'success', 'msg': <helpful msg>}\n     * On failure:\n     * * 	{'status': 'error', 'msg': <helpful msg>}\n     */\n    public function registerAlphaEmail() {\n        $this->load->library('form_validation');\n        $this->form_validation->set_error_delimiters('', '');\n        $this->form_validation->set_rules(\"email\", \"email\", \"required|valid_email|is_unique[alpha_applicants.email]\");\n\n        if ($this->form_validation->run()) {\n            $this->load->model(\"auth\");\n            $result = $this->auth->registerAlphaEmail($this->input->post(\"email\"));\n\n            if ($result) {\n                $this->printJSONSuccess(\"successfully registered for alpha\");\n            } else {\n                $this->printJSONDatabaseError();\n            }\n        } else {\n            $errors = array(\n                'email' => form_error('email'),\n                'status' => \"error\",\n                \"msg\" => \"Failed to validate the form server-side\"\n            );\n\n            if ($errors['email'] == \"The email field must contain a unique value.\") {\n                $errors['email'] = \"There is already an account associated with this email address.\";\n            }\n\n            $this->printJSON($errors);\n        }\n    }\n\n    /**\n     * Create a new account for this user\n     */\n    public function registerUser () {\n        $this->load->library('form_validation');\n        $this->form_validation->set_error_delimiters('', '');\n\n        // validation rules\n        $this->form_validation->set_rules(\"email\", \"email\", \"required|valid_email|is_unique[users.email]\");\n        // username must be alpha_dash (letters, numbers, dash, underscore)\n        $this->form_validation->set_rules(\"username\", \"username\", \"required|is_unique[users.username]|alpha_dash|callback_valid_username\");\n        $this->form_validation->set_rules(\"password\", \"password\", \"required|min_length[\" . self::PASSWORD_MIN_LENGTH . \"]\");\n\n        $status = null;\n        $msg = null;\n\n        if ($this->form_validation->run()) {\n            $this->load->model('auth');\n            $result = $this->auth->createUser($this->input->post('email'), $this->input->post('username'), $this->input->post('password'));\n\n            if ($result === false) {\n                return $this->printJSONDatabaseError();\n            } else {\n                return $this->printJSONSuccess(\"Account created\");\n            }\n        } else {\n            $errors = array(\n                'email' => form_error('email'),\n                'username' => form_error('username'),\n                'password' => form_error('password'),\n                'status' => \"error\",\n                \"msg\" => \"Failed to validate the form server-side\"\n            );\n\n            if ($errors['email'] == \"The email field must contain a unique value.\") {\n                $errors['email'] = \"There is already an account associated with this email address.\";\n            }\n\n            $this->printJSON($errors);\n        }\n    }\n\n    /**\n     * Authenticate the user to the site. This is a JSON API call\n     *\n     * Required parameters for POST:\n     * 	email 		An email for an account\n     * 	password 	The password for the account\n     *\n     * Response on success:\n     * 	{'status' : 'success', 'msg' : <helpful error msg>}\n     * Response on failure/error:\n     * 	{'status' : 'error', 'msg' : <helpful error msg>}\n     */\n    public function authenticateUser () {\n        $this->load->library('form_validation');\n        $this->form_validation->set_error_delimiters('', '');\n\n        // validation rules\n        $this->form_validation->set_rules(\"email\", \"email\", \"required|valid_email\");\n        $this->form_validation->set_rules(\"password\", \"password\", \"required|min_length[\" . self::PASSWORD_MIN_LENGTH . \"]\");\n\n        if($this->form_validation->run()) {\n            $this->load->model('auth');\n            $result = $this->auth->authUser($this->input->post('email'), $this->input->post('password'));\n\n            if ($result) {\n                // now we know that you are logged in\n                $_SESSION['email'] = $result['email'];\n                $_SESSION['username'] = $result['username'];\n                $_SESSION['id'] = $result['id'];\n                $_SESSION['admin'] = $result['admin'];\n\n                $status = \"success\";\n                $msg = \"You are now logged in as \" . $result['username'];\n                $this->printJSON(array(\"status\" => $status, \"msg\" => $msg));\n            } else {\n                $this->printJSON(array(\"status\" => \"error\", \"msg\" => \"The email or password is not correct\"));\n            }\n        } else {\n            $errors = array(\n                'email' => form_error('email'),\n                'password' => form_error('password'),\n                'status' => \"error\",\n                \"msg\" => \"Failed to validate the form server-side\"\n            );\n\n            $this->printJSON($errors);\n        }\n    }\n\n    /**\n     * Public API function.\n     * Print an overview of each character\n     */\n    public function getCharacterInfo () {\n        if (isset($_SESSION['id'])) {\n            $this->load->model (\"user_model\");\n            $arr = $this->user_model->fetchAccountOverview($_SESSION['id']);\n\n            if ($arr) {\n                $this->printJSON($arr);\n            } else {\n                $this->printJSON(array(\"status\" => \"error\", \"msg\" => \"Failed to fetch results from DB\"));\n            }\n        } else {\n            $this->printJSON(array(\"status\" => \"error\", \"msg\" => \"authentication error\"));\n        }\n    }\n\n    /**\n     * The gender must be recognizable.\n     */\n    public function valid_gender ($str) {\n        if (in_array($str, array(\"male\", \"female\"))) {\n            return true;\n        } else {\n            $this->form_validation->set_message(\"valid_gender\", \"The gender must be either male or female\");\n            return false;\n        }\n    }\n\n    /**\n     * The race must be recognizable\n     * TODO in the future load this from table\n     */\n    public function valid_race ($str) {\n        $races = array (\"goblin\", \"orc\", \"human\", \"dwarf\");\n        if (in_array($str, $races)) {\n            return true;\n        } else {\n            $this->form_validation->set_message(\"valid_race\", \"The race must be one of the preset races\");\n            return false;\n        }\n    }\n\n    /**\n     * This is a callback validation function\n     * Make sure that the username:\n     * 		1. Starts with a letter\n     * 		2. Is not the name (ignoring any capitalization) of an attraction or a region\n     */\n    public function valid_username($str) {\n        if (! ctype_alpha($str[0])) {\n            $this->form_validation->set_message(\"valid_username\", \"%s does not start with a letter\");\n            return false;\n        } else if ($this->is_reserved_keyword(strtolower($str))) {\n            $this->form_validation->set_message(\"valid_username\", \"'\" . $str . \"' is a reserved keyword\");\n            return false;\n        } else {\n            return true;\n        }\n    }\n\n    /**\n     * This is a callback validation function\n     * Make sure that the character name:\n     * 		1. Starts with a letter\n     * 		2. Is not the name (ignoring any capitalization) of an attraction or a region\n     */\n    public function valid_charname($str) {\n        if (! ctype_alpha($str[0])) {\n            $this->form_validation->set_message(\"valid_charname\", \"%s does not start with a letter\");\n            return false;\n        } else if ($this->is_reserved_keyword(strtolower($str))) {\n            $this->form_validation->set_message(\"valid_charname\", \"'\" . $str . \"' is a reserved keyword\");\n            return false;\n        } else {\n            return true;\n        }\n    }\n\n    /**\n     * Currently reserved keywords are:\n     * 		1. region names\n     * 		2. race names\n     * @return True iff string is a reserved keyword\n     */\n    private function is_reserved_keyword($str) {\n        $this->load->model(\"region_model\");\n        $regions = $this->region_model->getRegions();\n\n        if (in_array($str, $regions)) {\n            return true;\n        }\n\n        $this->load->model(\"static_model\");\n        $races = $this->static_model->races();\n        if (in_array($str, $races)) {\n            return true;\n        }\n\n        return false;\n    }\n\n    /**\n     * Try to delete a character.\n     * POST data must specify the character's name (name var)\n     * In addition, user must be logged in.\n     *\n     * On success, print JSON: {'status' => 'success', 'msg' => <helpful msg>}\n     * On error, print JSON: {'status' => 'error', 'msg' => <helpful msg>}\n     */\n    public function killCharacter () {\n        $this->load->library('form_validation');\n        $this->form_validation->set_error_delimiters('', '');\n\n        // validation rules\n        $this->form_validation->set_rules(\"name\", \"Character name\", \"trim|required\");\n\n        if ($this->form_validation->run()) {\n            $this->load->model('char_model');\n            $name = trim($this->input->post('name'));\n\n            $result = $this->char_model->killCharacter($_SESSION['id'], $name);\n            if ($result) {\n                $msg = \"Deleted character \" . $name;\n                $status = \"success\";\n            } else {\n                $msg = \"Failed to delete the character\";\n                $status = \"error\";\n            }\n\n            $this->printJSON(array(\"msg\" => $msg, \"status\" => $status));\n        } else {\n            $errors = array(\n                'name' => form_error('name'),\n                'status' => \"error\",\n                \"msg\" => \"Failed to validate the form server-side\"\n            );\n\n            $this->printJSON($errors);\n        }\n    }\n\n    /**\n     * Try to drop a character.\n     * POST data must specify the character's name (name var)\n     * In addition, user must be logged in.\n     *\n     * On success, print JSON: {'status' => 'success', 'msg' => <helpful msg>}\n     * On error, print JSON: {'status' => 'error', 'msg' => <helpful msg>}\n     */\n    public function dropCharacter () {\n        $this->load->library('form_validation');\n        $this->form_validation->set_error_delimiters('', '');\n\n        // validation rules\n        $this->form_validation->set_rules(\"name\", \"Character name\", \"trim|required\");\n\n        if ($this->form_validation->run()) {\n            $this->load->model('char_model');\n            $name = trim($this->input->post('name'));\n\n            $result = $this->char_model->dropCharacter($_SESSION['id'], $name);\n            if ($result) {\n                $msg = \"Dropped character \" . $name;\n                $status = \"success\";\n            } else {\n                $msg = \"Failed to drop the character\";\n                $status = \"error\";\n            }\n\n            $this->printJSON(array(\"msg\" => $msg, \"status\" => $status));\n        } else {\n            $errors = array(\n                'name' => form_error('name'),\n                'status' => \"error\",\n                \"msg\" => \"Failed to validate the form server-side\"\n            );\n\n            $this->printJSON($errors);\n        }\n    }\n\n    /**\n     * Create a new character\n     * POST data must specify the character's name, gender, and race\n     * In addition, user must be logged in.\n     *\n     * On success, print JSON: {'status' => 'success', 'msg' => <helpful msg>}\n     * On error, print JSON: {'status' => 'error', 'msg' => <helpful msg>}\n     * 	optionally, if it is a form validation error, will print an error message for each field that failed\n     */\n    public function createCharacter () {\n        $this->load->library('form_validation');\n        $this->form_validation->set_error_delimiters('', '');\n\n        // validation rules\n        $this->form_validation->set_rules(\"name\", \"Character name\", \"trim|required|max_length[\" . self::CHARNAME_MAX_LENGTH . \"]|is_unique[characters.name]|alpha_dash|callback_valid_charname\");\n        $this->form_validation->set_rules(\"gender\", \"gender\", \"trim|required|callback_valid_gender\");\n        $this->form_validation->set_rules(\"race\", \"race\", \"required|callback_valid_race\");\n\n        if ($this->form_validation->run()) {\n            $this->load->model(\"user_model\");\n\n            try {\n                $result = $this->user_model->createCharacter ($this->input->post(\"name\"), $this->input->post(\"race\"), $this->input->post(\"gender\"), $_SESSION['id']);\n                if ($result === false) {\n                    return $this->printJSONError(\"Character name already taken\");\n                } else {\n                    return $this->printJSONSuccess(\"Created character \" . $this->input->post('name'));\n                }\n            } catch (Exception $e) {\n                return $this->printJSONError($e->getMessage());\n            }\n        } else {\n            $errors = array(\n                'name' => form_error('name'),\n                'gender' => form_error('gender'),\n                'race' => form_error('race'),\n                'status' => \"error\",\n                \"msg\" => \"Error: \"\n            );\n\n            $this->printJSON($errors);\n        }\n    }\n\n    /**\n     * Select the character of the given race to play as\n     *\n     * Required params:\n     *     race         The race of the character\n     *\n     * Authentication:\n     *     $_SESSION['id']          The user logged in\n     *\n     * JSON Output:\n     *     {'status': 'success'/'error', 'msg': <helpful msg>}\n     */\n    public function selectCharacter () {\n        if (!isset($_SESSION['id'])) {\n            return $this->printJSONError(\"User is not logged in\");\n        }\n\n        $this->load->library('form_validation');\n        $this->form_validation->set_error_delimiters('', '');\n        $this->form_validation->set_rules(\"race\", \"race\", \"required|callback_valid_race\");\n\n        if ($this->form_validation->run()) {\n            $this->load->model ('char_model');\n            $id = $this->char_model->getCharacterID ($this->input->post('race'), $_SESSION['id']);\n\n            if ($id !== false) {\n                // get the ID associated with this character\n                $_SESSION ['char_id'] = $id;\n\n                // get character stats\n                $char_details = $this->char_model->getCharacterInfo($id);\n                $_SESSION['char_name'] = $char_details['name'];\n\n                $this->printJSONSuccess(\"Successfully selected character \" . $_SESSION['char_name']);\n            } else {\n                $this->printJSONError(\"Error getting character ID from database\");\n            }\n        } else {\n            $errors = array(\n                \"status\" => \"error\",\n                \"msg\" => \"form validation error\",\n                \"race\" => form_error(\"race\")\n            );\n\n            $this->printJSON($errors);\n        }\n    }\n\n\n    /**\n     * Print the given array in JSON with the correct content type.\n     */\n    private function printJSON ($arr) {\n        $this->output->set_content_type(\"application/json\");\n        $this->output->set_output(json_encode($arr));\n    }\n\n    /**\n     * Helper function to avoid code duplication\n     */\n    private function printJSONDatabaseError() {\n        $this->printJSONError(\"DB error: \" . pg_last_error());\n    }\n\n    /**\n     * Helper function to avoid code duplication\n     */\n    private function printJSONError($msg) {\n        $this->printJSON(array('status' => 'error', 'msg' => $msg));\n    }\n\n    /**\n     * Helper function to avoid code duplication\n     */\n    private function printJSONSuccess($msg) {\n        $this->printJSON(array('status' => 'success', 'msg' => $msg));\n    }\n}\n\n?>\n",
+			"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/controllers/gameplayer.php",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 21330,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/controllers/index.html",
+			"settings":
+			{
+				"buffer_size": 114,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/index.php",
+			"settings":
+			{
+				"buffer_size": 6732,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/config/config.php",
+			"settings":
+			{
+				"buffer_size": 13202,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 347.0,
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/cache",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/controllers",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/core",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/errors",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/helpers",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/hooks",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/language",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/libraries",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/logs",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/models",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/third_party",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/views",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/assets",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/password_compat",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/sql",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/system",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/views"
+	],
+	"file_history":
+	[
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/index.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/config/index.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/config/autoload.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/artist_view.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/art_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/char_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/user_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/gameplayer.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/writing.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/artist.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/writing.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/writing_panel.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/art.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/services.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/static_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/statics.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/css/artist_view.css",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/character.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/css/narrative.css",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/narrative_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/narrative.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/narrative.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/build_deck.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/narrative.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/deck_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/css/build_deck.css",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/deck.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/build_deck.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/css/writing.css",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/views/navbar.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/inventory.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/admin_panel.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/charsel.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/css/charsel.css",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/dev_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/login.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/admin.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/admin.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/css/auth-style.css",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/auth.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/charsel.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/map.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/node_modules/jshint/node_modules/htmlparser2/test/Events/13-long-cdata-end.json",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/bower_components/jquery/test/data/selector/html5_selector.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/bower_components/jquery/test/unit/selector.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/system/language/english/email_lang.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/sql/sql-exec.sh",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/targets.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/target_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/password_compat/version-test.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/node_modules/bower/node_modules/inquirer/node_modules/cli-color/node_modules/es5-ext/node_modules/es6-iterator/valid-iterable.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/admin_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/world.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/world_panel.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/world_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/map.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/utils.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/system/libraries/Upload.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/dev_panel.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/Titan.sublime-project",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/region_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/hex_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/inventory_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/world.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/title_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/unused_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/character_skills.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/create_action.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/attraction_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/dev.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/auth.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/actions.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/action_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/trade.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/controllers/regions.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/css/world.css",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/css/map.css",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/config/database.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/system/database/DB_active_rec.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/diplomacy.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/register.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/titles.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/character_titles.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/composer.json",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/node_modules/bower/templates/std/conflict-resolved.std",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/diplomacy.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/title.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/association_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/hostile_targets.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/inventory.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/character_overview.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/tiles/assets/js/tiles.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/tiles/tiles.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/create_action.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/char_overview.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/tiles/assets/css/tiles.css",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/skills.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/inventory.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/friendly_targets.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/event_log.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/friendly_targets.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers/ongoing_actions.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/ongoing_actions.html",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/tiles/bower.json",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/system/helpers/captcha_helper.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/node_modules/jshint/src/reporters/checkstyle.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/config/smileys.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/system/helpers/security_helper.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/node_modules/jshint/node_modules/shelljs/shell.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/node_modules/bower/templates/std/help.std",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/config/hooks.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/models/travel_model.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/css/char_overview.css",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/bower_components/bootstrap/less/component-animations.less",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/node_modules/jshint/src/reporters/non_error.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/node_modules/bower/node_modules/mout/string/escapeUnicode.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/views/character_overview.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/views/charsel.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/views/character/character_skills.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/controllers.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/views/map.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/application/views/character/character_inventory.php",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/zinrocfantasy/assets/js/angular.min.js",
+		"/Applications/mappstack-5.4.28-0/apache2/htdocs/bitnami.css",
+		"/Users/zinroc/Sites/zinrocfantasy/application/config/database.php",
+		"/Users/zinroc/Sites/test.php",
+		"/Users/zinroc/Sites/check.php",
+		"/Users/zinroc/Downloads/check.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"gameplayer",
+			"login",
+			"getMund",
+			"row",
+			"art",
+			"getIndexOfC",
+			"getIndexOfCheck",
+			"$scope.narrativeActors",
+			"activeTarget",
+			"actor",
+			"actors",
+			"narrativeActors",
+			"getNarrativeAC",
+			"narrativeActors",
+			"activeTarget",
+			"playCard",
+			"getCardTemplates",
+			"charges",
+			"lifestyle",
+			"getCardTemplate",
+			"getCardTemplates",
+			"register",
+			"buld",
+			"deck",
+			"asset_url",
+			"asset_url() ",
+			"selectedArt",
+			"getArtAssetInfo",
+			"art",
+			"updateCardSecondary",
+			"traitInSec",
+			"secTrait",
+			"setTraitCheckboxes",
+			"setNarTargEntDomCheckboxes",
+			"traitInSec",
+			"safe",
+			"traitInSec",
+			"secTraits",
+			"$scope.traits",
+			"$scope.narrativeActors",
+			"narrativeInfo",
+			"INSERT INTO card_modifier_free",
+			"$scope.selectedCard.mod",
+			"characterIndex",
+			"EntInMod",
+			"narTargInMod",
+			"backfire",
+			"$scope.dart",
+			"$scope.skill",
+			"$scope.darts[i]",
+			"dartTargEntChecked",
+			"$scope.narTargTypes",
+			"narTargType",
+			"type",
+			"selectedDart",
+			"selectedCard",
+			"mund",
+			"narTargInMod",
+			"adminController",
+			"50",
+			"opacity",
+			"sign-in",
+			"absolute",
+			"container",
+			".row",
+			"Img",
+			"charBodyImg",
+			"art",
+			"getCardI",
+			"setSkillCheckboxes",
+			"feedChecked",
+			"feedbackRelTrait",
+			"selfRelFeedVal",
+			"RelFeedtVal",
+			"EntInFeedbackRelValue",
+			"DomInFeedbackRelValue[narTargType.id][relTrait.id][ent.id][dom.id]['value']",
+			"updateEntInFeedbackRelType",
+			"checkSelfDomInFeedbackRelType",
+			"updateSelfDomInFeedbackRelType",
+			"domSelfInRelFeed",
+			"$scope.relTrats",
+			"narTar",
+			"EntsInRelTraits",
+			"updateRelTraitDomWeight",
+			"checkRelTraitDomWeight",
+			"checkDomInRelTrait",
+			"setDomInRelTrait",
+			"updateRelTraitWeight",
+			"checkRelTraitWeight",
+			"checkRelTraitVal",
+			"showParaInRelTraitEnt",
+			"checkEntInRelTrait",
+			"$scope.selfRelTraitVal[relTraits[i]['id']][doms[j]['id']]['value']",
+			"$scope.selfRelTraitVal",
+			"$scope.selfRelTraitVal[relTrait[i]['id']][dom[j]['id']]['value']",
+			"$scope.selfRelTraitVal[relTrait.id][dom.id]['value']",
+			"selfRelTraitVal[relTrait.id][dom.id]['value']",
+			"setRelTraitCheckboxes",
+			"elTraits",
+			"domSelfInRelTraits",
+			"updateSelfRelTraitVal",
+			"checkSelfRelTraitWeigh",
+			"checkSelfRelTraitVal",
+			"checkDomSelfInRelTraits",
+			"setDomSelfInRelTraits",
+			"$scope.traits[i]['feed",
+			"trait",
+			"selectedCardProp",
+			"$scope.proptions",
+			"$scope.proption",
+			"$scope.proptions",
+			"selectedCardProp",
+			"narTargType.propChecked",
+			"narTargType['propChecked']",
+			"narTargType",
+			"$this->db->row",
+			"char_id",
+			"[cardIndex]",
+			"cards[cardIndex]",
+			"num",
+			"num = false",
+			"EntInMod",
+			"$scope",
+			"$scope.",
+			"narTargEntsToRemove",
+			"narTargTypeInMod",
+			"safe",
+			"setNarTargTypeInModToAdd"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"association_type"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/config/database.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4418,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2745,
+								2745
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 548.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/views/login.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 55,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								55,
+								55
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/controllers/gameplayer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21330,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/controllers/index.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 114,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6732,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6355,
+								6355
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Applications/mappstack-5.4.28-0/apache2/htdocs/sergei-blog/application/config/config.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13202,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 4949.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "sergei-blog.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"views/writing_panel.html"
+			],
+			[
+				"data",
+				"application/config/database.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"",
+				"!=="
+			]
+		],
+		"width": 467.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 263.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
