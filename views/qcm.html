@@ -5,8 +5,8 @@
 
 
 	<div ng-if="loading.experimentUpdate">
-		<div> <h1> Updating Experiment <b> {{editExperiment.id}} </b></h1></div>
-
+		<div ng-if="!loaded.experimentUpdate"> <h1> Updating Experiment <b> {{editExperiment.id}} </b></h1></div>
+		<div ng-if="loaded.experimentUpdate"> <h1> Updated Experiment <b> {{editExperiment.id}} </b></h1></div>
 		Experiment Updated: <b>{{loaded.experimentUpdate}}</b><br>
 
 		<div ng-if="loaded.experimentUpdate">

@@ -15,7 +15,6 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	$scope.experimentID = null;
 	$scope.loadedExperiment = null;
 
-
 	$scope.measure = {};
 
 	$scope.error = {};
@@ -43,6 +42,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	$scope.loaded = {};
 	$scope.loaded.experiment = false;
 	$scope.loaded.parametersPlaced = false;
+	$scope.loaded.experimentUpdate = false;
 
 	$scope.solvent = {}; 
 	$scope.solvent.name = null;
@@ -82,6 +82,8 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.loaded.experiment = false;
 
 		$scope.loading.experimentUpdate = false;
+
+		$scope.loaded.experimentUpdate = false;
 	};
 
 	$scope.increaseTags = function (){
@@ -148,7 +150,6 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.expSensor.name = $scope.loadedExperiment.sensor;
 		$scope.para.flow = parseInt($scope.loadedExperiment.flow_rate);
 		$scope.para.conc = parseFloat($scope.loadedExperiment.conc_inlet);
-		console.log($scope.para.flow, $scope.para.conc, "flow + conc");
 		$scope.loaded.parametersPlaced = true;
 	};
 
@@ -169,6 +170,8 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	            $scope.error.msg = null;
 	            $scope.loadedExperiment = response.experiment;
 	            $scope.loaded.experiment = true;
+
+
 	            $scope.placeParameters();
 	        }
 		});
@@ -478,7 +481,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
 			console.log("Tried to update experiment " + $scope.editExperiment.id);
 			console.log(response);
-			$scope.loading.experimentUpdate = false;
+			$scope.loaded.experimentUpdate = true;
 		});
     };
 
