@@ -39,7 +39,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	$scope.tagVals = [];
 	$scope.measVals = [];
 	$scope.tagVals[0] = {};
-	$scope.measVals[0] = {}
+	$scope.measVals[0] = {};
 	$scope.tagVals[0].name = null;
 	$scope.measVals[0].name = null;
 	$scope.measVals[0].val = null;
@@ -57,7 +57,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.tagVals[$scope.maxTagLength] = {};
 		$scope.tagVals[$scope.maxTagLength].name = null;
 		console.log($scope.maxTagLength, $scope.tagIndex, $scope.tagVals);
-	}
+	};
 
 	$scope.increaseMeasures = function (){
 		$scope.maxMeasLength++;
@@ -65,7 +65,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.measVals[$scope.maxMeasLength] = {};
 		$scope.measVals[$scope.maxMeasLength].name = null;
 		console.log($scope.maxMeasLength, $scope.measIndex, $scope.measVals);
-	}
+	};
 
 	$scope.decreaseMeasures = function(){
 		$scope.maxMeasLength--;
@@ -81,9 +81,9 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.measVals = tempMeasVals;
 
 
-		console.log($scope.maxMeasLength, $scope.measIndex, $scope.measVals)
+		console.log($scope.maxMeasLength, $scope.measIndex, $scope.measVals);
 
-	}
+	};
 
 	$scope.decreaseTags = function(){
 		$scope.maxTagLength--;
@@ -99,9 +99,9 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.tagVals = tempTagVals;
 
 
-		console.log($scope.maxTagLength, $scope.tagIndex, $scope.tagVals)
+		console.log($scope.maxTagLength, $scope.tagIndex, $scope.tagVals);
 
-	}
+	};
 
 	$scope.getMeasures = function (){
 	    gameAPIservice.getMeasures().success(function (response){
@@ -119,7 +119,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	            $scope.measures = response.measures;
 	        }
 	    });
-	}
+	};
 
 	$scope.getTags = function (){
 	    gameAPIservice.getTags().success(function (response){
@@ -137,7 +137,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	            $scope.tags = response.tags;
 	        }
 	    });
-	}
+	};
 
 
 	$scope.getSensors = function (){
@@ -156,7 +156,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	            $scope.sensors = response.sensors;
 	        }
 	    });
-	}
+	};
 
 	$scope.getModules = function (){
 	    gameAPIservice.getModules().success(function (response){
@@ -174,7 +174,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	            $scope.modules = response.modules;
 	        }
 	    });
-	}
+	};
 
 	$scope.getSolutions = function (){
 	    gameAPIservice.getSolutions().success(function (response){
@@ -192,7 +192,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	            $scope.solutions = response.solutions;
 	        }
 	    });
-	}
+	};
 
 	$scope.getCoatings = function (){
 	    gameAPIservice.getCoatings().success(function (response){
@@ -210,7 +210,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	            $scope.coatings = response.coatings;
 	        }
 	    });
-	}
+	};
 
 	$scope.getSolvents = function (){
 	    gameAPIservice.getSolvents().success(function (response){
@@ -228,7 +228,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	            $scope.solvents = response.solvents;
 	        }
 	    });
-	}
+	};
 
 
 	$scope.getCoatings();
@@ -241,31 +241,31 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     $scope.showCoatingInput = function (){
     	$scope.input.coating = true; 
-    }
+    };
 
     $scope.showMeasureInput = function (){
     	$scope.input.measure = true; 
-    }
+    };
 
     $scope.showSolventInput = function (){
     	$scope.input.solvent = true;
-    }
+    };
 
     $scope.showSolutionInput = function (){
     	$scope.input.solution = true;
-    }
+    };
 
     $scope.showSensorInput = function (){
     	$scope.input.sensor = true;
-    }
+    };
 
     $scope.showModuleInput = function (){
     	$scope.input.module = true;
-    }
+    };
 
     $scope.showTagInput = function (){
     	$scope.input.tag = true;
-    }
+    };
 
     $scope.addCoating = function (){
     	//console.log($scope.coatingPara.name, $scope.coatingPara.solvent, $scope.coatingPara.thickness, 
@@ -287,7 +287,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     	$scope.input.coating = false;
 
-    }
+    };
 
     $scope.addSensor = function (){
     	console.log($scope.sensorPara.name);
@@ -305,7 +305,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     	$scope.input.sensor = false;
 
-    }
+    };
 
     $scope.addMeasure = function (){
     	console.log($scope.measure.name);
@@ -322,7 +322,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     	$scope.input.measure = false;
 	
-    }
+    };
 
     $scope.addTag = function (){
     	console.log($scope.tagPara.name);
@@ -339,7 +339,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     	$scope.input.tag = false;
 
-    }
+    };
 
     $scope.addModule = function (){
     	console.log($scope.modulePara.name);
@@ -357,7 +357,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     	$scope.input.module = false;
 
-    }
+    };
 
 
     $scope.addSolvent = function (){
@@ -376,7 +376,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     	$scope.input.solvent = false;
 
-    }
+    };
 
     $scope.addSolution = function (){
     	console.log($scope.solutionPara.name);
@@ -386,13 +386,14 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     		console.log("Tried to add solution");
     		console.log(response);
+
+    		$scope.getSolutions();
     	});
 
 
     	$scope.input.solution = false;
 
-    	$scope.getSolutions();
-    }
+    };
 
     $scope.addExperiment = function (){
 
@@ -400,110 +401,75 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 			$scope.para.conc, $scope.para.flow);
 
 		gameAPIservice.addExperiment($scope.para.desc, $scope.coating.name, $scope.solution.name, $scope.sensor.name, $scope.module.name,
-			$scope.para.conc, $scope.para.flow).success(function (response){
-				"use strict";
+		$scope.para.conc, $scope.para.flow).success(function (response){
+			"use strict";
 
-				console.log("Tried to add experiment");
-				console.log(response);
-				$scope.experimentID = response.id;
-
-
-				for(var i=0; i<$scope.tagVals.length; i++){
-					console.log($scope.experimentID, $scope.tagVals[i].name);
+			console.log("Tried to add experiment");
+			console.log(response);
+			$scope.experimentID = response.id;
 
 
-					gameAPIservice.addExperimentTag($scope.experimentID, $scope.tagVals[i].name).success(function (response){
-						"use strict";
-
-						console.log("Tried to add experiment tag");
-						console.log(response);
-					});
-
-				}
+			for(var i=0; i<$scope.tagVals.length; i++){
+				console.log($scope.experimentID, $scope.tagVals[i].name);
 
 
-				for(i=0; i<$scope.measVals.length; i++){
-					console.log($scope.experimentID, $scope.measVals[i].name, $scope.measVals[i].val);
+				gameAPIservice.addExperimentTag($scope.experimentID, $scope.tagVals[i].name).success(function (response){
+					"use strict";
 
-					gameAPIservice.addExperimentMeasure($scope.experimentID, $scope.measVals[i].name, $scope.measVals[i].val).success(function (response){
-						"use strict";
+					console.log("Tried to add experiment tag");
+					console.log(response);
+				});
 
-						console.log("Tried to add experiment measure");
-						console.log(response);
-					});
-				}
+			}
 
 
+			for(i=0; i<$scope.measVals.length; i++){
+				console.log($scope.experimentID, $scope.measVals[i].name, $scope.measVals[i].val);
 
-			});
+				gameAPIservice.addExperimentMeasure($scope.experimentID, $scope.measVals[i].name, $scope.measVals[i].val).success(function (response){
+					"use strict";
 
-    	/*
-    	gameAPIservice.addExperiment($scope.para.desc, $scope.coating.name, $scope.solution.name, $scope.sensor.name, 
-    		$scope.module.name, $scope.para.conc, $scope.para.flow).success(function (response){
-    			"use strict";
+					console.log("Tried to add experiment measure");
+					console.log(response);
+				});
+			}
 
-    			console.log("Tried to add experiment");
-    			console.log(response);
-    		});
-    	*/
-    }
+
+
+		});
+
+    };
 
     $scope.cancelTag = function (){
     	$scope.input.tag = false;
-    }
+    };
 
 
     $scope.cancelMeasure = function (){
     	$scope.input.measure = false;
-    }
+    };
 
     $scope.cancelSolvent = function (){
     	$scope.input.solvent = false;
-    }
+    };
 
     $scope.cancelCoating = function (){
     	$scope.input.coating = false;
-    }
+    };
 
 
     $scope.cancelSolution = function (){
     	$scope.input.solution = false;
-    }
+    };
 
 
     $scope.cancelSensor = function (){
     	$scope.input.sensor = false;
-    }
+    };
 
 
     $scope.cancelModule = function (){
     	$scope.input.module = false;
-    }
+    };
 
-/*
-	function csvJSON(csv){
-
-	  var lines=csv.split("\n");
-
-	  var result = [];
-
-	  var headers=lines[0].split(",");
-
-	  for(var i=1;i<lines.length;i++){
-
-		  var obj = {};
-		  var currentline=lines[i].split(",");
-
-		  for(var j=0;j<headers.length;j++){
-			  obj[headers[j]] = currentline[j];
-		  }
-
-		  result.push(obj);
-
-	  }
-
-	  //return result; //JavaScript object
-	  return JSON.stringify(result); //JSON
-	}
-*/
 });
