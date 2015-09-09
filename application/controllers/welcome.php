@@ -119,6 +119,32 @@ class Welcome extends CI_Controller {
 
     }
 
+    public function deleteExperimentMeasures() {
+        $id = $this->input->post("id");
+
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->deleteExperimentMeasures($id);
+        if ($result){
+            $this->printJSONSuccess("deleted experiment measures for id " . $id);
+        } else {
+            $this->printJSONDatabaseError();
+        }
+
+    }
+
+    public function deleteExperimentTags() {
+        $id = $this->input->post("id");
+
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->deleteExperimentTags($id);
+        if ($result){
+            $this->printJSONSuccess("deleted experiment tags for id " . $id);
+        } else {
+            $this->printJSONDatabaseError();
+        }
+
+    }
+
     public function addExperiment() {
         $description = $this->input->post("description");
         $coating = $this->input->post("coating");
@@ -239,6 +265,22 @@ class Welcome extends CI_Controller {
         } else {
             $this->printJSONDatabaseError();
         }
+
+    }
+    public function getExperimentTags (){
+        $id = $this->input->post("id");
+
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->getExperimentTags($id);
+            $this->printJSON(array("experimentTags" => $result));
+
+    }
+    public function getExperimentMeasures (){
+        $id = $this->input->post("id");
+
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->getExperimentMeasures($id);
+            $this->printJSON(array("experimentMeasures" => $result));
 
     }
 

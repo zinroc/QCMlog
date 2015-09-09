@@ -9,6 +9,33 @@ class Qcm_Model extends CI_MODEL {
 		return $result;
 	}
 
+
+	function getExperimentTags($id){
+		$query = $this->db->get_where("experiment_tags", array("experiment"=>$id));
+		$result = $query->result_array();
+		return $result;
+	}
+
+	function deleteExperimentTags($id){
+		$sql = "DELETE FROM experiment_tags WHERE experiment=?";
+		$arr = array("experiment"=>$id);
+		$this->db->query($sql, $arr);
+		return true;
+	}
+
+	function deleteExperimentMeasures($id){
+		$sql = "DELETE FROM experiment_measures WHERE experiment=?";
+		$arr = array("experiment"=>$id);
+		$this->db->query($sql, $arr);
+		return true;
+	}
+
+	function getExperimentMeasures($id){
+		$query = $this->db->get_where("experiment_measures", array("experiment"=>$id));
+		$result = $query->result_array();
+		return $result;
+	}
+
 	function getCoatings (){
 		$query = $this->db->get("coatings");
 		$coatings = $query->result_array();

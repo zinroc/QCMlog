@@ -5,11 +5,14 @@
 
 
 	<div ng-if="loading.experimentUpdate">
-		<div ng-if="!loaded.experimentUpdate"> <h1> Updating Experiment <b> {{editExperiment.id}} </b></h1></div>
-		<div ng-if="loaded.experimentUpdate"> <h1> Updated Experiment <b> {{editExperiment.id}} </b></h1></div>
-		Experiment Updated: <b>{{loaded.experimentUpdate}}</b><br>
+		<div ng-if="!(loaded.experimentUpdate && added.experimentTags && added.experimentMeasures)"> <h1> Updating Experiment <b> {{editExperiment.id}} </b></h1></div>
+		<div ng-if="loaded.experimentUpdate && added.experimentTags && added.experimentMeasures"> <h1> Updated Experiment <b> {{editExperiment.id}} </b></h1></div>
 
-		<div ng-if="loaded.experimentUpdate">
+		Experiment Updated: <b>{{loaded.experimentUpdate}}</b><br>
+		Tags Updated: <b>{{added.experimentTags}}</b><br>
+		Measures Updated <b> {{added.experimentMeasures}}</b><br>
+
+		<div ng-if="loaded.experimentUpdate && added.experimentTags && added.experimentMeasures">
 			Experiment {{editExperiment.id}} Updated
 			<p class="btn btn-primary" ng-click="resetLoadingScreen()"> Back </p>
 		</div>
@@ -22,8 +25,10 @@
 
 		Loaded Experiment: <b> {{loaded.experiment}} </b><br>
 		Wrote Parameters: <b> {{loaded.parametersPlaced}} </b><br>
+		Wrote Tags: <b> {{loaded.tagsPlaced}} </b><br>
+		Wrote Measures <b> {{loaded.measuresPlaced}} </b><br>
 
-		<div ng-if="loaded.experiment && loaded.parametersPlaced">
+		<div ng-if="loaded.experiment && loaded.parametersPlaced && loaded.tagsPlaced && loaded.measuresPlaced">
 			Experiment Loaded
 			<p class="btn btn-primary" ng-click="resetLoadingScreen()"> Back </p>
 		</div>
@@ -165,7 +170,7 @@
 			<div ng-if="!input.tag">
 				<select class="form-control" ng-model="tagVals[index].name">
 	            	<option ng-selected="!tagVals[index].name" value=false>---View Tags---</option>
-	                <option value="{{tag.name}}" ng-repeat="tag in tags">{{tag.name.toTitleCase()}}</option>
+	                <option value="{{tag.name}}" ng-repeat="tag in tags" ng-selected="tag.name===tagVals[index].name">{{tag.name.toTitleCase()}}</option>
 	            </select>
 			</div>
 		</div>
@@ -194,7 +199,7 @@
 			<div ng-if="!input.measure">
 				<select class="form-control" ng-model="measVals[index].name">
 	            	<option ng-selected="!measVals[index].name" value=false>---View Parameters---</option>
-	                <option value="{{measure.name}}" ng-repeat="measure in measures">{{measure.name.toTitleCase()}}</option>
+	                <option value="{{measure.name}}" ng-repeat="measure in measures" ng-selected="measure.name===measVals[index].name">{{measure.name.toTitleCase()}}</option>
 	            </select>
 	    		<div ng-if="measVals[index].name">
 	    			Value: <input type="number" ng-model="measVals[index].val"/>

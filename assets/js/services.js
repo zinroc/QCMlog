@@ -59,6 +59,23 @@ angular.module('App.services', []).factory('gameAPIservice', function($http) {
         return this.getJSONWithParams("welcome", "getExperiment", {"id": id});
     };
 
+    gameAPI.getExperimentTags = function (id) {
+        return this.getJSONWithParams("welcome", "getExperimentTags", {"id": id});
+    };
+
+    gameAPI.getExperimentMeasures = function (id) {
+        return this.getJSONWithParams("welcome", "getExperimentMeasures", {"id": id});
+    };
+    
+    gameAPI.deleteExperimentMeasures = function (id) {
+        return this.getJSONWithParams("welcome", "deleteExperimentMeasures", {"id": id});
+    };
+
+
+    gameAPI.deleteExperimentTags = function (id) {
+        return this.getJSONWithParams("welcome", "deleteExperimentTags", {"id": id});
+    };
+
     gameAPI.addCoating = function (name, solvent, thickness, thickness_var, rms){
     	return this.getJSONWithParams("welcome", "addCoating", {"name": name, "solvent": solvent, 
     		"thickness": thickness, "thickness_var": thickness_var, "rms": rms});

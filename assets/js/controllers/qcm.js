@@ -43,6 +43,8 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	$scope.loaded.experiment = false;
 	$scope.loaded.parametersPlaced = false;
 	$scope.loaded.experimentUpdate = false;
+	$scope.loaded.measuresPlaced = false;
+	$scope.loaded.tagsPlaced = false;
 
 	$scope.solvent = {}; 
 	$scope.solvent.name = null;
@@ -84,6 +86,11 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.loading.experimentUpdate = false;
 
 		$scope.loaded.experimentUpdate = false;
+
+		$scope.loaded.parametersPlaced = false;
+		$scope.loaded.tagsPlaced = false;
+		$scope.loaded.measuresPlaced = false;
+
 	};
 
 	$scope.increaseTags = function (){
@@ -143,6 +150,8 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	};
 
 	$scope.placeParameters = function (){
+
+
 		$scope.para.desc = $scope.loadedExperiment.description;
 		$scope.expCoating.name = $scope.loadedExperiment.coating;
 		$scope.expSolution.name = $scope.loadedExperiment.solution;
@@ -151,6 +160,46 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.para.flow = parseInt($scope.loadedExperiment.flow_rate);
 		$scope.para.conc = parseFloat($scope.loadedExperiment.conc_inlet);
 		$scope.loaded.parametersPlaced = true;
+	};
+
+	$scope.placeMeasures = function (){
+		$scope.maxMeasLength = 0;
+
+		$scope.measIndex = [0];
+		$scope.measVals = [];
+		$scope.measVals[0] = {};
+		$scope.measVals[0].name = null;
+		$scope.measVals[0].val = null;
+
+		for (var i=0; i<$scope.loadedExperimentMeasures.length; i++){
+			if (i>$scope.maxMeasLength){
+				$scope.increaseMeasures();
+			}
+			$scope.measVals[$scope.maxMeasLength] = {};
+			$scope.measVals[$scope.maxMeasLength].name = $scope.loadedExperimentMeasures[i].measure;
+			$scope.measVals[$scope.maxMeasLength].val = parseFloat($scope.loadedExperimentMeasures[i].value);
+		}
+
+		$scope.loaded.measuresPlaced = true;
+
+	};
+
+	$scope.placeTags = function (){
+		$scope.maxTagLength = 0;
+
+		$scope.tagIndex = [0];
+		$scope.tagVals = [];
+		$scope.tagVals[0] = {};
+		$scope.tagVals[0].name = null;
+
+		for (var i=0; i<$scope.loadedExperimentTags.length; i++){
+			if (i>$scope.maxTagLength){
+				$scope.increaseTags();
+			}
+			$scope.tagVals[$scope.maxTagLength] = {};
+			$scope.tagVals[$scope.maxTagLength].name = $scope.loadedExperimentTags[i].tag;
+		}
+		$scope.loaded.tagsPlaced = true;
 	};
 
 	$scope.loadExperiment = function(){
@@ -174,6 +223,46 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
 	            $scope.placeParameters();
 	        }
+		});
+
+		gameAPIservice.getExperimentTags($scope.editExperiment.id).success(function (response){
+			"use strict";
+			console.log("Tried to fetch experiment tags for exp " + $scope.editExperiment.id);
+			console.log(response);
+
+	        if (response.hasOwnProperty('status') && response.status === 'error') {
+	            $scope.error.msg = response.msg;
+	            $scope.success.msg = null;
+
+	        } else {
+	            $scope.success.msg = "fetched experiment tags for exp " + $scope.editExperiment.id;
+	            $scope.error.msg = null;
+	            $scope.loadedExperimentTags = response.experimentTags;
+	            $scope.loaded.experimentTags = true;
+
+	            $scope.placeTags();
+	        }
+
+		});
+
+		gameAPIservice.getExperimentMeasures($scope.editExperiment.id).success(function (response){
+			"use strict";
+			console.log("Tried to fetch experiment measures for exp " + $scope.editExperiment.id);
+			console.log(response);
+
+	        if (response.hasOwnProperty('status') && response.status === 'error') {
+	            $scope.error.msg = response.msg;
+	            $scope.success.msg = null;
+
+	        } else {
+	            $scope.success.msg = "fetched experiment measures for exp " + $scope.editExperiment.id;
+	            $scope.error.msg = null;
+	            $scope.loadedExperimentMeasures = response.experimentMeasures;
+	            $scope.loaded.experimentMeasures = true;
+	            
+	            $scope.placeMeasures();
+	        }
+
 		});
 	};
 
@@ -482,6 +571,50 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 			console.log("Tried to update experiment " + $scope.editExperiment.id);
 			console.log(response);
 			$scope.loaded.experimentUpdate = true;
+		});
+
+		gameAPIservice.deleteExperimentTags($scope.editExperiment.id).success(function (response){
+			"use strict";
+
+			console.log("Tried to delete experiment tags for id " + $scope.editExperiment.id);
+			console.log(response);
+
+			for (var i=0; i<$scope.tagVals.length; i++){
+				gameAPIservice.addExperimentTag($scope.editExperiment.id, $scope.tagVals[i].name).success(function (response){
+					"use strict";
+
+					console.log("Tried to add experiment tag");
+					console.log(response);
+					if (i === $scope.tagVals.length){
+						$scope.added.experimentTags = true;
+					}
+				});
+			}
+			if ($scope.tagVals.length ===0){
+				$scope.added.experimentTags = true;
+			}
+
+		});
+
+		gameAPIservice.deleteExperimentMeasures($scope.editExperiment.id).success(function (response){
+			"use strict";
+
+			console.log("Tried to delete experiment measures for id " + $scope.editExperiment.id);
+			console.log(response);
+			for (var j=0; j<$scope.measVals.length; j++){
+				gameAPIservice.addExperimentMeasure($scope.editExperiment.id, $scope.measVals[j].name, $scope.measVals[j].val).success(function (response){
+					"use strict";
+
+					console.log("Tried to add experiment measure");
+					console.log(response);
+					if (j === $scope.measVals.length){
+						$scope.added.experimentMeasures = true;
+					}
+				});
+			}
+			if ($scope.measVals.length ===0){
+				$scope.added.experimentMeasures = true;
+			}
 		});
     };
 
