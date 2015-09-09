@@ -29,7 +29,9 @@ angular.module('App.services', []).factory('gameAPIservice', function($http) {
         return this.getJSON("welcome", "getCoatings");
     };
 
-
+    gameAPI.getCatagories = function (){
+        return this.getJSON("welcome", "getCatagories");
+    };
 
     gameAPI.getSolvents = function () {
         return this.getJSON("welcome", "getSolvents");
@@ -53,6 +55,10 @@ angular.module('App.services', []).factory('gameAPIservice', function($http) {
 
     gameAPI.getSolutions = function () {
         return this.getJSON("welcome", "getSolutions");
+    };
+
+    gameAPI.search = function (query) {
+        return this.getJSONWithParams("welcome", "search", {"query": query});
     };
 
     gameAPI.getExperiment = function (id) {

@@ -1,3 +1,35 @@
 <div ng-controller="exploreController">
+	<div ng-if="error.msg" style="color: red;">{{error.msg}}</div>
+	<div ng-if="success.msg && !error.msg" style="color: green;">{{success.msg}}</div>
+
 	<h1> Explore</h1>
+	<div  class="container-fluid" >
+		<div class="row">
+			<div class="col-md-6">
+				Primary Search By: <br> 
+				<select class="form-control" ng-model="search.primary" ng-change="setPrimarySearchArray()">
+			    	<option ng-selected="!search.primary" value=false>---View Catagories---</option>
+			        <option value="{{catagory.name}}" ng-repeat="catagory in catagories">{{catagory.name.toTitleCase()}}</option>
+			    </select>
+			</div>
+			<div class="col-md-6">
+				{{search.primary.toTitleCase()}} Value:
+				<div ng-if="primarySearch.length">
+					<select class="form-control" ng-model="search.value">
+				    	<option ng-selected="!search.value" value=false>---View {{search.primary.toTitleCase()}}s---</option>
+				        <option value="{{value.name}}" ng-repeat="value in primarySearch">{{value.name.toTitleCase()}}</option>
+					</select>
+				</div>
+			</div>
+			<p class="btn btn-primary" ng-click="search()" ng-if="search.primary && search.value">Search</p>
+		</div>
+		<div class="row" ng-if="searchResult.length">
+			<div ng-repeat="column in experimentColumns" class="col-md-2">
+				{{column.split('_').join(' ').toTitleCase()}}<br>
+				<div ng-repeat="result in searchResult">
+					<t ng-if="column!==inlet_concentration">{{result[column]}}</t>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

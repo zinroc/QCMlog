@@ -319,6 +319,22 @@ class Welcome extends CI_Controller {
 
     }
 
+
+    public function search (){
+        $query = $this->input->post("query");
+
+        $query = strip_tags($query);
+
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->search($query);
+        if ($result){
+            $this->printJSON(array("search" => $result));
+        } else {
+            $this->printJSONDatabaseError();
+        }
+    }
+
+
     public function getExperiment (){
         $id = $this->input->post("id");
 
@@ -385,6 +401,18 @@ class Welcome extends CI_Controller {
         $measures = $this->qcm_model->getMeasures();
         if ($measures){
             $this->printJSON(array("measures" => $measures));
+        } else {
+            $this->printJSONDatabaseError();
+        }
+    }
+
+
+    public function getCatagories() {
+
+        $this->load->model('qcm_model');
+        $catagories = $this->qcm_model->getCatagories();
+        if ($catagories){
+            $this->printJSON(array("catagories" => $catagories));
         } else {
             $this->printJSONDatabaseError();
         }

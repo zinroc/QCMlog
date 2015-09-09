@@ -2,6 +2,13 @@
 
 class Qcm_Model extends CI_MODEL {
 
+	//make sure this cannot have an SQL injection
+	function search ($sql){
+		//echo($sql);
+		$query = $this->db->query($sql);
+		$result = $query->result_array();
+		return $result;
+	}
 
 	function getExperiment($id){
 		$query = $this->db->get_where("experiments", array("id"=>$id));
@@ -72,6 +79,14 @@ class Qcm_Model extends CI_MODEL {
 		$query = $this->db->get("measures");
 		$measures = $query->result_array();
 		return $measures;
+	}
+
+	function getCatagories (){
+		$query = $this->db->get("catagories");
+		$catagories = $query->result_array();
+
+		return $catagories;
+
 	}
 
 	function getTags (){
