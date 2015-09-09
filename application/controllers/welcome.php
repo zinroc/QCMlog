@@ -95,6 +95,25 @@ class Welcome extends CI_Controller {
     }
 
 
+    public function editCoating() {
+        $name = $this->input->post("name");
+        $solvent = $this->input->post("solvent");
+        $thickness = $this->input->post("thickness");
+        $thickness_var = $this->input->post("thickness_var");
+        $rms = $this->input->post("rms");
+
+        //echo($name . " " . $solvent);
+
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->editCoating($name, $solvent, $thickness, $thickness_var, $rms);
+        if ($result){
+            $this->printJSONSuccess("editted coating " . $name);
+        } else {
+            $this->printJSONDatabaseError();
+        }
+
+    }
+
     public function addCoating() {
         $name = $this->input->post("name");
         $solvent = $this->input->post("solvent");
@@ -311,6 +330,21 @@ class Welcome extends CI_Controller {
             $this->printJSONDatabaseError();
         }
     }
+
+
+    public function loadCoating (){
+        $coating_name = $this->input->post("coating_name");
+        //echo($coating_name . "COATING NAME");
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->loadCoating($coating_name);
+        if ($result){
+            $this->printJSON(array("coating" => $result));
+        } else {
+            $this->printJSONDatabaseError();
+        }
+    }
+
+
 
     public function getCoatings() {
 

@@ -17,12 +17,15 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
 	$scope.measure = {};
 
+	$scope.loadedCoating = {};
+
 	$scope.error = {};
 	$scope.error.msg = null;
 
 	$scope.expCoating = {};
 	$scope.input = {};
 	$scope.input.coating = false;
+	$scope.input.coatingEdit = false;
 	$scope.input.solvent = false;
 	$scope.input.solution = false;
 	$scope.input.sensor = false;
@@ -38,6 +41,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	$scope.loading = {};
 	$scope.loading.experimentAdd = false;
 	$scope.loading.experimentEdit = false;
+	$scope.loading.coatingEdit = false;
 
 	$scope.loaded = {};
 	$scope.loaded.experiment = false;
@@ -46,8 +50,8 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	$scope.loaded.measuresPlaced = false;
 	$scope.loaded.tagsPlaced = false;
 
-	$scope.solvent = {}; 
-	$scope.solvent.name = null;
+	$scope.expSolvent = {};
+	$scope.expSolvent.name = null;
 
 	$scope.expSolution = {};
 	$scope.expSolution.name = null;
@@ -84,6 +88,8 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.loaded.experiment = false;
 
 		$scope.loading.experimentUpdate = false;
+
+		$scope.loading.coatingEdit = false;
 
 		$scope.loaded.experimentUpdate = false;
 
@@ -393,6 +399,60 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	    });
 	};
 
+	$scope.editCoating = function (){
+		console.log($scope.expCoating.name);
+
+		$scope.loading.coatingUpdate = true;
+
+		gameAPIservice.editCoating($scope.expCoating.name, $scope.expSolvent.name, $scope.coatingPara.thickness,
+		$scope.coatingPara.thickness_var, $scope.coatingPara.rms).success(function (response){
+			"use strict";
+			console.log("Tried to update coating " + $scope.expCoating.name);
+			console.log(response);
+
+	        if (response.hasOwnProperty('status') && response.status === 'error') {
+	            $scope.error.msg = response.msg;
+	            $scope.success.msg = null;
+
+	        } else {
+	            $scope.success.msg = "updated coating";
+	            $scope.error.msg = null;
+    			$scope.loading.coatingUpdate = false;
+	        }
+
+		});
+
+	};
+
+    $scope.showCoatingEdit = function (){
+    	$scope.loading.coatingEdit = true;
+    	gameAPIservice.loadCoating($scope.expCoating.name).success(function (response){
+    		"use strict";
+    		console.log("Tried to fetch coating " + $scope.expCoating.name);
+    		console.log(response);
+
+	        if (response.hasOwnProperty('status') && response.status === 'error') {
+	            $scope.error.msg = response.msg;
+	            $scope.success.msg = null;
+
+	        } else {
+	            $scope.success.msg = "fetched coating";
+	            $scope.error.msg = null;
+	            $scope.loadedCoating = response.coating;
+
+	            $scope.coatingPara.name = $scope.loadedCoating.name;
+	            $scope.expSolvent.name = $scope.loadedCoating.solvent;
+	            $scope.coatingPara.thickness = parseInt($scope.loadedCoating.thickness);
+	            $scope.coatingPara.thickness_var = parseInt($scope.loadedCoating.thickness_variability);
+	            $scope.coatingPara.rms = parseInt($scope.loadedCoating.rms);
+
+
+    			$scope.input.coatingEdit = true;
+    			$scope.resetLoadingScreen();
+	        }
+    	});
+    };
+
 	$scope.getCoatings();
 	$scope.getSolvents();
 	$scope.getSolutions();
@@ -404,6 +464,8 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
     $scope.showCoatingInput = function (){
     	$scope.input.coating = true; 
     };
+
+
 
     $scope.showMeasureInput = function (){
     	$scope.input.measure = true; 
@@ -431,11 +493,11 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     $scope.addCoating = function (){
 
-    	gameAPIservice.addCoating($scope.coatingPara.name, $scope.solvent.name, $scope.coatingPara.thickness, 
+    	gameAPIservice.addCoating($scope.coatingPara.name, $scope.expSolvent.name, $scope.coatingPara.thickness, 
     		$scope.coatingPara.thickness_var, $scope.coatingPara.rms).success(function (response){
     		"use strict";
     		
-    		console.log($scope.coatingPara.name, $scope.solvent.name, $scope.coatingPara.thickness, 
+    		console.log($scope.coatingPara.name, $scope.expSolvent.name, $scope.coatingPara.thickness, 
     		$scope.coatingPara.thickness_var, $scope.coatingPara.rms);
 
     		console.log("Tried to add coating");
@@ -693,6 +755,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     $scope.cancelCoating = function (){
     	$scope.input.coating = false;
+    	$scope.input.coatingEdit = false;
     };
 
 

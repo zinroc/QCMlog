@@ -10,6 +10,14 @@ class Qcm_Model extends CI_MODEL {
 	}
 
 
+
+	function loadCoating($coating_name){
+		$query = $this->db->get_where("coatings", array("name"=>$coating_name));
+		$result = $query->row_array();
+
+		return $result;
+	}
+
 	function getExperimentTags($id){
 		$query = $this->db->get_where("experiment_tags", array("experiment"=>$id));
 		$result = $query->result_array();
@@ -76,6 +84,20 @@ class Qcm_Model extends CI_MODEL {
 		$query = $this->db->get("modules");
 		$modules = $query->result_array();
 		return $modules;
+	}
+
+	function editCoating ($name, $solvent, $thickness, $thickness_var, $rms){
+		$sql = "UPDATE coatings SET solvent=?, thickness=?, thickness_variability=?, rms=? WHERE name=?";
+		$arr = array("solvent"=>$solvent, "thickness"=>$thickness, 
+			"thickness_variability"=>$thickness_var, "rms"=>$rms, "name"=>$name);
+		$result = $this->db->query($sql, $arr);
+
+		if ($result){
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 	function addCoating ($name, $solvent, $thickness, $thickness_var, $rms){

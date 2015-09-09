@@ -59,6 +59,10 @@ angular.module('App.services', []).factory('gameAPIservice', function($http) {
         return this.getJSONWithParams("welcome", "getExperiment", {"id": id});
     };
 
+    gameAPI.loadCoating = function (coating_name){
+        return this.getJSONWithParams("welcome", "loadCoating", {"coating_name": coating_name});
+    };
+
     gameAPI.getExperimentTags = function (id) {
         return this.getJSONWithParams("welcome", "getExperimentTags", {"id": id});
     };
@@ -79,6 +83,11 @@ angular.module('App.services', []).factory('gameAPIservice', function($http) {
     gameAPI.addCoating = function (name, solvent, thickness, thickness_var, rms){
     	return this.getJSONWithParams("welcome", "addCoating", {"name": name, "solvent": solvent, 
     		"thickness": thickness, "thickness_var": thickness_var, "rms": rms});
+    };
+
+    gameAPI.editCoating = function (name, solvent, thickness, thickness_var, rms){
+        return this.getJSONWithParams("welcome", "editCoating", {"name": name, "solvent": solvent, 
+            "thickness": thickness, "thickness_var": thickness_var, "rms": rms});
     };
 
     gameAPI.updateExperiment = function (id, description, coating, solution, sensor, module, conc, flow){
