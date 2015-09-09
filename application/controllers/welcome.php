@@ -26,7 +26,8 @@ class Welcome extends CI_Controller {
             // unauthenticated views
             "index",
             "home",
-            "qcm"
+            "qcm",
+            "explore"
         );
 
         if (in_array($method, $free_view)) {
@@ -73,6 +74,21 @@ class Welcome extends CI_Controller {
             "extra_css" => array(asset_url() . "/css/qcm.css"),
             "extra_js" => array(asset_url() . "/js/controllers/qcm.js"),
             "view" => "qcm"
+        );
+        $this->load->view ('master', array("data" => $data));
+
+    }
+
+    /**
+     * Go to the explore page.
+     */
+    public function explore() {
+
+        $data = array(
+            "page_title" => "explore",
+            "extra_css" => array(asset_url() . "/css/explore.css"),
+            "extra_js" => array(asset_url() . "/js/controllers/explore.js"),
+            "view" => "explore"
         );
         $this->load->view ('master', array("data" => $data));
 

@@ -31,6 +31,8 @@ function is_active($navbar_item) {
                     $navbar_items = array(
                         array("text" => "Home", "href" => "welcome/home"),
                         array("text" => "Record", "href" => "welcome/QCM"), 
+                        array("text" => "Explore", "href" => "welcome/explore"), 
+
                     );
 
                     foreach($navbar_items as &$navbar_item) {
