@@ -172,8 +172,13 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 		var column = $scope.search.primary.replace(/(<([^>]+)>)/ig, "");
 		column = column.slice(0, -1);
 		var value = $scope.search.value.replace(/(<([^>]+)>)/ig, "");
-    	var query = "SELECT * FROM experiments WHERE "+column+"='"+value+"' ORDER BY("+column+")";
 
+		var query = "";
+		if (column==='measure' || column==='tag'){
+			query = "SELECT * FROM experiments WHERE id IN (SELECT experiment FROM experiment_"+column+"s WHERE "+column+"='"+value+"')";
+		} else {
+    		query = "SELECT * FROM experiments WHERE "+column+"='"+value+"' ORDER BY("+column+")";
+    	}
     	gameAPIservice.search(query).success(function(response){
     		"use strict";
     		console.log("Tried to search");
@@ -186,7 +191,7 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 	            $scope.success.msg = "fetched search result";
 	            $scope.error.msg = null;
 	            $scope.searchResult = response.search;
-	            console.log($scope.searchResult + "SEARCH RESULT");
+	            //console.log($scope.searchResult + "SEARCH RESULT");
 	        }
     	});
 
