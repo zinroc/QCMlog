@@ -57,6 +57,14 @@ angular.module('App.services', []).factory('gameAPIservice', function($http) {
         return this.getJSON("welcome", "getSolutions");
     };
 
+    gameAPI.searchMeasure = function (exp_id, measure){
+        return this.getJSONWithParams("welcome", "searchMeasure", {"exp_id": exp_id, "measure": measure});
+    };
+    
+    gameAPI.searchTag = function (exp_id, tag){
+        return this.getJSONWithParams("welcome", "searchTag", {"exp_id": exp_id, "tag": tag});
+    };
+
     gameAPI.search = function (query) {
         return this.getJSONWithParams("welcome", "search", {"query": query});
     };

@@ -320,6 +320,34 @@ class Welcome extends CI_Controller {
     }
 
 
+    public function searchMeasure (){
+        $exp_id = $this->input->post("exp_id");
+        $measure = $this->input->post("measure");
+
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->searchMeasure($exp_id, $measure);
+        if ($result){
+            $this->printJSON(array("measure" => $result['measure'], 
+                "experiment" => $result['experiment'], "value" => $result['value']));
+        } else {
+            $this->printJSONDatabaseError();
+        }
+    }
+
+    public function searchTag (){
+        $exp_id = $this->input->post("exp_id");
+        $tag = $this->input->post("tag");
+
+        $this->load->model('qcm_model');
+        $result = $this->qcm_model->searchTag($exp_id, $tag);
+        if ($result){
+            $this->printJSON(array("tag" => $result['tag'], 
+                "experiment" => $result['experiment'], "value" => $result['value']));
+        } else {
+            $this->printJSONDatabaseError();
+        }
+    }
+
     public function search (){
         $query = $this->input->post("query");
 

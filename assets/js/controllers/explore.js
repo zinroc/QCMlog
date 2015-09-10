@@ -8,6 +8,8 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 	$scope.primarySearch = {};
 
 	$scope.searchResult = {};
+	$scope.measResults = {};
+	$scope.tagResults = {};
 
 	$scope.searchDisplay = [];
 
@@ -19,6 +21,9 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 	$scope.query = "";
 
 	$scope.experimentColumns = ['id', 'coating', 'flow_rate', 'sensor', 'module', 'solution', 'inlet_concentration'];
+	$scope.measureColumns = [];
+	$scope.tagColumns = [];
+
 
 	$scope.initSearchDisplay = function (){
 		for (var i=0; i<$scope.experimentColumns.length; i++){
@@ -199,7 +204,9 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 		column = column.slice(0, -1);
 		var value = $scope.search.value.replace(/(<([^>]+)>)/ig, "");
 		var order = $scope.search.order.replace(/(<([^>]+)>)/ig, "");
-		order = order.slice(0, -1);
+		if (order ==='inlet_concentration'){
+			order = 'conc_inlet';
+		}
 		var order_string = "ORDER BY ("+order+");";
 		var query = "";
 
@@ -217,15 +224,40 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 		catagoryDisplay = catagoryDisplay.slice(0, -1);
 
 
+    	for (var i=0; i<$scope.measures.length; i++){
+    		var measure = $scope.measures[i];
+    		if ($scope.searchDisplay[measure.name]){
+    			$scope.measureColumns.push(measure.name);
+    		}
+    	}
+
+    	for (var i=0; i<$scope.tags.length; i++){
+    		var tag = $scope.tags[i];
+    		if ($scope.searchDisplay[tag.name]){
+    			$scope.tagColumns.push(tag.name);
+    		}
+    	}
+
+    	for (var i=0; i<$scope.tagColumns.length; i++){
+    		var tagColumn = $scope.tagColumns[i];
+    		$scope.tagResults[tagColumn] = {};
+    	}
+
+    	for (var i=0; i<$scope.measureColumns.length; i++){
+    		var measureColumn = $scope.measureColumns[i];
+    		$scope.measResults[measureColumn] = {};
+    	}
+
 		if (column==='measure' || column==='tag'){
-			query = "SELECT" + catagoryDisplay + " FROM experiments WHERE id IN (SELECT experiment FROM experiment_"+column+"s WHERE "+column+"='"+value+"') " + order_string;
+			query = "SELECT id," + catagoryDisplay + " FROM experiments WHERE id IN (SELECT experiment FROM experiment_"+column+"s WHERE "+column+"='"+value+"') " + order_string;
 		} else if (column==='solvent') {
-			query = "SELECT " + catagoryDisplay + " FROM experiments WHERE coating IN (SELECT name FROM coatings WHERE "+column+"='"+value+"')";
+			query = "SELECT id," + catagoryDisplay + " FROM experiments WHERE coating IN (SELECT name FROM coatings WHERE "+column+"='"+value+"') " + order_string;
 		} else {
-    		query = "SELECT" + catagoryDisplay + " FROM experiments WHERE "+column+"='"+value+"' " + order_string;
+    		query = "SELECT id," + catagoryDisplay + " FROM experiments WHERE "+column+"='"+value+"' " + order_string;
     	}
     	$scope.query = query;
-    	gameAPIservice.search(query).success(function(response){
+
+    	gameAPIservice.search(query).success(function (response){
     		"use strict";
     		console.log("Tried to search");
     		console.log(response);
@@ -237,7 +269,48 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 	            $scope.success.msg = "fetched search result";
 	            $scope.error.msg = null;
 	            $scope.searchResult = response.search;
-	            //console.log($scope.searchResult + "SEARCH RESULT");
+
+	            if ($scope.measureColumns.length > 0){
+		            for (var i=0; i<$scope.searchResult.length; i++){
+		            	for (var j=0; j<$scope.measureColumns.length; j++){
+		            		gameAPIservice.searchMeasure($scope.searchResult[i].id, $scope.measureColumns[j]).success(function (response){
+		            			"use strict";
+		            			console.log("Tried to search for measures");
+		            			console.log(response);
+						        if (response.hasOwnProperty('status') && response.status === 'error') {
+						            $scope.error.msg = response.msg;
+						            $scope.success.msg = null;
+
+						        } else {
+						            $scope.success.msg = "fetched search measures";
+						            $scope.error.msg = null;
+						            $scope.measResults[response.measure][response.experiment] = response.value;
+		            			}
+		            		});
+		            	}
+		            }
+	        	}
+	            if ($scope.tagColumns.length > 0){
+		            for (var i=0; i<$scope.searchResult.length; i++){
+		            	for (var j=0; j<$scope.tagColumns.length; j++){
+		            		gameAPIservice.searchTag($scope.searchResult[i].id, $scope.tagColumns[j]).success(function (response){
+		            			"use strict";
+		            			console.log("Tried to search for tags");
+		            			console.log(response);
+						        if (response.hasOwnProperty('status') && response.status === 'error') {
+						            $scope.error.msg = response.msg;
+						            $scope.success.msg = null;
+
+						        } else {
+						            $scope.success.msg = "fetched search tags";
+						            $scope.error.msg = null;
+						            $scope.tagResults[response.tag][response.experiment] = response.value;
+		            			}
+		            		});
+		            	}
+		            }
+
+	        	}
 	        }
     	});
 

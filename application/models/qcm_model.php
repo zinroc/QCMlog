@@ -2,6 +2,41 @@
 
 class Qcm_Model extends CI_MODEL {
 
+	function searchMeasure ($exp_id, $measure){
+		$query = $this->db->get_where("experiment_measures", array("experiment"=>$exp_id, "measure"=>$measure));
+		if ($query->num_rows()===0){
+			$result['experiment'] = $exp_id;
+			$result['measure'] = $measure; 
+			$result['value'] = false;
+			return $result;
+
+		} else {
+			$measureInfo = $query->row_array();
+			$result['experiment'] = $measureInfo['experiment'];
+			$result['measure'] = $measureInfo['measure'];
+			$result['value'] = $measureInfo['value'];
+			return $result;
+		}
+	}
+
+
+	function searchTag ($exp_id, $tag){
+		$query = $this->db->get_where("experiment_tags", array("experiment"=>$exp_id, "tag"=>$tag));
+		if ($query->num_rows()===0){
+			$result['experiment'] = $exp_id;
+			$result['tag'] = $tag;
+			$result['value'] = false;
+			return $result;
+
+		} else {
+			$tagInfo = $query->row_array();
+			$result['experiment'] = $tagInfo['experiment'];
+			$result['tag'] = $tagInfo['tag'];
+			$result['value'] = true;
+			return $result;
+		}
+	}
+
 	//make sure this cannot have an SQL injection
 	function search ($sql){
 		//echo($sql);

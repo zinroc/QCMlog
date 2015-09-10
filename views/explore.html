@@ -15,8 +15,7 @@
 			<div class="col-md-3">
 				Primary Order By: <br> 
 				<select class="form-control" ng-model="search.order">
-			    	<option value="ids">id</option>
-			        <option value="{{catagory.name}}" ng-repeat="catagory in catagories">{{catagory.name.toTitleCase()}}</option>
+			        <option value="{{column}}" ng-repeat="column in experimentColumns">{{column.toTitleCase()}}</option>
 			    </select>
 			</div>
 			<div class="col-md-3">
@@ -55,12 +54,24 @@
 			Paste: <br> <b> {{query}} </b> <br>
 			<a href="https://dataclips.heroku.com/clips/new?autosave=true">  To Create Dataclip</a> <br>
 			<div ng-repeat="column in experimentColumns" class="col-md-2" ng-if="searchDisplay[column]">
-				{{column.split('_').join(' ').toTitleCase()}}<br>
+				<b>{{column.split('_').join(' ').toTitleCase()}} </b><br>
 				<div ng-repeat="result in searchResult">
-					<t ng-if="column!==inlet_concentration">{{result[column]}}</t>
+					<t ng-if="column!=='inlet_concentration'">{{result[column]}}</t>
+					<t ng-if="column==='inlet_concentration'">{{result.conc_inlet}}</t>
 				</div>
 			</div>
-
+			<div ng-repeat="column in measureColumns" class="col-md-2" ng-if="searchDisplay[column]">
+				<b>{{column.split('_').join(' ').toTitleCase()}} </b> <br>
+				<div ng-repeat="result in searchResult">
+					{{measResults[column][result.id]}}
+				</div>
+			</div>
+			<div ng-repeat="column in tagColumns" class="col-md-2" ng-if="searchDisplay[column]">
+				<b>{{column.split('_').join(' ').toTitleCase()}} </b><br>
+				<div ng-repeat="result in searchResult"><!-- May bug if fetch is slow and [result.id] is undefined-->
+					{{tagResults[column][result.id]}}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
