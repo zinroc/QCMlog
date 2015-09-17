@@ -12,12 +12,7 @@
 			        <option value="{{catagory.name}}" ng-repeat="catagory in catagories">{{catagory.name.toTitleCase()}}</option>
 			    </select>
 			</div>
-			<div class="col-md-3">
-				Primary Order By: <br> 
-				<select class="form-control" ng-model="search.order">
-			        <option value="{{column}}" ng-repeat="column in experimentColumns">{{column.toTitleCase()}}</option>
-			    </select>
-			</div>
+
 			<div class="col-md-3">
 				{{search.primary.toTitleCase()}} Value:
 				<div ng-if="primarySearch.length">
@@ -26,6 +21,12 @@
 				        <option value="{{value.name}}" ng-repeat="value in primarySearch">{{value.name.toTitleCase()}}</option>
 					</select>
 				</div> <br>
+			</div>
+			<div class="col-md-3">
+				Primary Order By: <br> 
+				<select class="form-control" ng-model="search.order">
+			        <option value="{{column}}" ng-repeat="column in experimentColumns">{{column.toTitleCase()}}</option>
+			    </select>
 			</div>
 			<div class="col-md-3" style="height: 100px; overflow: scroll;">
 				Display Columns: <br>
