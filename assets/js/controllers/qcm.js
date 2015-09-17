@@ -642,15 +642,19 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 			console.log(response);
 
 			for (var i=0; i<$scope.tagVals.length; i++){
-				gameAPIservice.addExperimentTag($scope.editExperiment.id, $scope.tagVals[i].name).success(function (response){
-					"use strict";
+				if ($scope.tagVals[i].name){
+					gameAPIservice.addExperimentTag($scope.editExperiment.id, $scope.tagVals[i].name).success(function (response){
+						"use strict";
 
-					console.log("Tried to add experiment tag");
-					console.log(response);
-					if (i === $scope.tagVals.length){
-						$scope.added.experimentTags = true;
-					}
-				});
+						console.log("Tried to add experiment tag");
+						console.log(response);
+						if (i === $scope.tagVals.length){
+							$scope.added.experimentTags = true;
+						}
+					});
+				} else {
+					$scope.added.experimentTags = true;
+				}
 			}
 			if ($scope.tagVals.length ===0){
 				$scope.added.experimentTags = true;
@@ -664,15 +668,19 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 			console.log("Tried to delete experiment measures for id " + $scope.editExperiment.id);
 			console.log(response);
 			for (var j=0; j<$scope.measVals.length; j++){
-				gameAPIservice.addExperimentMeasure($scope.editExperiment.id, $scope.measVals[j].name, $scope.measVals[j].val).success(function (response){
-					"use strict";
+				if ($scope.measVals[j].name){
+					gameAPIservice.addExperimentMeasure($scope.editExperiment.id, $scope.measVals[j].name, $scope.measVals[j].val).success(function (response){
+						"use strict";
 
-					console.log("Tried to add experiment measure");
-					console.log(response);
-					if (j === $scope.measVals.length){
-						$scope.added.experimentMeasures = true;
-					}
-				});
+						console.log("Tried to add experiment measure");
+						console.log(response);
+						if (j === $scope.measVals.length){
+							$scope.added.experimentMeasures = true;
+						}
+					});
+				} else {
+					$scope.added.experimentMeasures = true;
+				}
 			}
 			if ($scope.measVals.length ===0){
 				$scope.added.experimentMeasures = true;
@@ -699,17 +707,18 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 			for(var i=0; i<$scope.tagVals.length; i++){
 				console.log($scope.experimentID, $scope.tagVals[i].name);
 
+				if ($scope.tagVals[i].name){
+					gameAPIservice.addExperimentTag($scope.experimentID, $scope.tagVals[i].name).success(function (response){
+						"use strict";
 
-				gameAPIservice.addExperimentTag($scope.experimentID, $scope.tagVals[i].name).success(function (response){
-					"use strict";
-
-					console.log("Tried to add experiment tag");
-					console.log(response);
-					console.log(i, $scope.tagVals.length);
-					if (i === $scope.tagVals.length){
-						$scope.added.experimentTags = true;
-					}
-				});
+						console.log("Tried to add experiment tag");
+						console.log(response);
+						console.log(i, $scope.tagVals.length);
+						if (i === $scope.tagVals.length){
+							$scope.added.experimentTags = true;
+						}
+					});
+				}
 
 			}
 			if ($scope.tagVals.length ===0){
@@ -719,18 +728,21 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
 			for(var j=0; j<$scope.measVals.length; j++){
 				console.log($scope.experimentID, $scope.measVals[j].name, $scope.measVals[j].val);
+				if ($scope.measVals[j].name){
+					gameAPIservice.addExperimentMeasure($scope.experimentID, $scope.measVals[j].name, $scope.measVals[j].val).success(function (response){
+						"use strict";
 
-				gameAPIservice.addExperimentMeasure($scope.experimentID, $scope.measVals[j].name, $scope.measVals[j].val).success(function (response){
-					"use strict";
+						console.log("Tried to add experiment measure");
+						console.log(response);
+						console.log(j, $scope.measVals.length);
 
-					console.log("Tried to add experiment measure");
-					console.log(response);
-					console.log(j, $scope.measVals.length);
-
-					if (j === $scope.measVals.length){
-						$scope.added.experimentMeasures = true;
-					}
-				});
+						if (j === $scope.measVals.length){
+							$scope.added.experimentMeasures = true;
+						}
+					});
+				} else {
+					$scope.added.experimentMeasures = true;
+				}
 			}
 			if ($scope.measVals.length ===0){
 				$scope.added.experimentMeasures = true;
