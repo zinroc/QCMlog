@@ -20,7 +20,7 @@
 // 	$config['base_url'] = "http://" . $_SERVER['HTTP_HOST'] . ROOT;
 // }
 if (strpos($_SERVER['HTTP_HOST'], 'heroku')) {
-	$config['base_url'] = 'http://zinroc-blog.herokuapp.com/';
+	$config['base_url'] = 'http://qcmdlog.herokuapp.com/';
 } else {
 	$config['base_url'] = '';
 }
