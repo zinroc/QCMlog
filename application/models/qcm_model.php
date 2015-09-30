@@ -82,8 +82,16 @@ class Qcm_Model extends CI_MODEL {
 
 	function getExperimentMeasures($id){
 		$query = $this->db->get_where("experiment_measures", array("experiment"=>$id));
-		$result = $query->result_array();
-		return $result;
+		$expMeasures = $query->result_array();
+		$i = 0;
+		foreach ($expMeasures as $measure){
+			$query = $this->db->get_where("measures", array("name"=>$measure['measure']));
+			$measureInfo = $query->row_array();
+			$expMeasures[$i]['description'] = $measureInfo['description'];
+			$expMeasures[$i]['units'] = $measureInfo['units'];
+			$i++;
+		}
+		return $expMeasures;
 	}
 
 	function getCoatings (){
@@ -211,9 +219,9 @@ class Qcm_Model extends CI_MODEL {
 		}
 	}
 
-	function addMeasure ($name, $description){
-		$sql = "INSERT INTO measures (id, name, description) VALUES (DEFAULT, ?, ?)";
-		$arr = array("name"=>$name, "description"=>$description);
+	function addMeasure ($name, $description, $units){
+		$sql = "INSERT INTO measures (id, name, description, units) VALUES (DEFAULT, ?, ?, ?)";
+		$arr = array("name"=>$name, "description"=>$description, "units"=>$units);
 		$result = $this->db->query($sql, $arr);
 
 		if($result){

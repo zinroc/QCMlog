@@ -242,9 +242,10 @@ class Welcome extends CI_Controller {
     public function addMeasure() {
         $name = $this->input->post("name");
         $description = $this->input->post("description");
+        $units = $this->input->post("units");
 
         $this->load->model('qcm_model');
-        $result = $this->qcm_model->addMeasure($name, $description);
+        $result = $this->qcm_model->addMeasure($name, $description, $units);
         if ($result){
             $this->printJSONSuccess("added measure " . $name);
         } else {

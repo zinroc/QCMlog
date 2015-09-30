@@ -184,6 +184,8 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 			$scope.measVals[$scope.maxMeasLength] = {};
 			$scope.measVals[$scope.maxMeasLength].name = $scope.loadedExperimentMeasures[i].measure;
 			$scope.measVals[$scope.maxMeasLength].val = parseFloat($scope.loadedExperimentMeasures[i].value);
+			$scope.measVals[$scope.maxMeasLength].units = $scope.loadedExperimentMeasures[i].units;
+			$scope.measVals[$scope.maxMeasLength].description = $scope.loadedExperimentMeasures[i].description;
 		}
 
 		$scope.loaded.measuresPlaced = true;
@@ -530,9 +532,9 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
     };
 
     $scope.addMeasure = function (){
-    	console.log($scope.measure.name, $scope.measure.desc);
+    	console.log($scope.measure.name, $scope.measure.desc, $scope.measure.units);
     	
-    	gameAPIservice.addMeasure($scope.measure.name, $scope.measure.desc).success(function (response){
+    	gameAPIservice.addMeasure($scope.measure.name, $scope.measure.desc, $scope.measure.units).success(function (response){
     		"use strict";
 
     		console.log("Tried to add measure");

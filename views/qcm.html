@@ -221,7 +221,7 @@
 							ng-options="measure as measure.name for measure in measures track by measure.name" ng-mouseover="activatePopover(index)" ng-mouseleave="deactivatePopover()"  data-toggle="popover" data-placement="top" data-title="Description:" data-content="{{measVals[index].description}}">
 			            </select>
 			    		<div ng-if="measVals[index].name">
-			    			Value: <input type="number" step="0.0001" ng-model="measVals[index].val"/>
+			    			Value: <input type="number" step="0.0001" ng-model="measVals[index].val"/> [{{measVals[index].units}}]
 			    		</div>
 					</div>
 				</div>
@@ -235,6 +235,7 @@
 		        <div id="addBox" ng-if="input.measure">
 					Name: <input type="text" ng-model="measure.name"/><br>
 					Description: <input type="text" ng-model="measure.desc"/>
+					Units: <input type="text" ng-model="measure.units"/>
 					<br>
 					<div ng-if="measure.name && input.measure">
 						<p class="btn btn-primary" ng-click="addMeasure()"> Create Measure </p>
