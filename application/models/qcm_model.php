@@ -335,7 +335,7 @@ class Qcm_Model extends CI_MODEL {
 			return false;
 		}
 
-		$nameNoSpace = getUnderscoreName($name);
+		$nameNoSpace = $this->getUnderscoreName($name);
 
 		$sql = "ALTER TABLE experiment_tag_columns ADD COLUMN ".$nameNoSpace." BOOLEAN DEFAULT false";
 		$result = $this->db->query($sql);

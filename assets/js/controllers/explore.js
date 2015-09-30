@@ -22,6 +22,9 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 		$scope.success.msg = null;
 
 		$scope.query = "";
+		$scope.experimentColumnsChecked = false;
+		$scope.tagColumnsChecked = false;
+		$scope.measureColumnsChecked = false;
 
 		$scope.experimentColumns = ['id', 'date', 'coating', 'flow_rate', 'sensor', 'module', 'solution', 'inlet_concentration'];
 		$scope.measureColumns = [];
@@ -32,8 +35,70 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 	$scope.init();
 
 	$scope.clearSearch = function (){
-
+		//TODO make a reset that doesn't bug
 		location.reload();
+
+		/*
+		$scope.init();
+		$scope.initSearchDisplay();
+		$scope.initSearchDisplayMeasures();
+		$scope.initSearchDisplayTags();
+		*/
+
+	};
+	
+	$scope.checkAllMeasureColumns = function (){
+		if (!$scope.measureColumnsChecked){
+			$scope.measureColumnsChecked = true;
+			for (var i=0; i<$scope.measures.length; i++){
+				var column = $scope.measures[i];
+				$scope.searchDisplay[column.name] = true;
+			}
+			return;
+		} else if ($scope.measureColumnsChecked){
+			$scope.measureColumnsChecked = false;
+			for (var i=0; i<$scope.measures.length; i++){
+				var column = $scope.measures[i];
+				$scope.searchDisplay[column.name] = false;
+			}
+			return;
+		}
+	};
+
+	$scope.checkAllTagColumns = function (){
+		if (!$scope.tagColumnsChecked){
+			$scope.tagColumnsChecked = true;
+			for (var i=0; i<$scope.tags.length; i++){
+				var column = $scope.tags[i];
+				$scope.searchDisplay[column.name] = true;
+			}
+			return;
+		} else if ($scope.tagColumnsChecked){
+			$scope.tagColumnsChecked = false;
+			for (var i=0; i<$scope.tags.length; i++){
+				var column = $scope.tags[i];
+				$scope.searchDisplay[column.name] = false;
+			}
+			return;
+		}
+	};
+
+	$scope.checkAllExperimentColumns = function (){
+		if (!$scope.experimentColumnsChecked){
+			$scope.experimentColumnsChecked = true;
+			for (var i=0; i<$scope.experimentColumns.length; i++){
+				var column = $scope.experimentColumns[i];
+				$scope.searchDisplay[column] = true;
+			}
+			return;
+		}	else if ($scope.experimentColumnsChecked){
+			$scope.experimentColumnsChecked = false;
+			for (var i=0; i<$scope.experimentColumns.length; i++){
+				var column = $scope.experimentColumns[i];
+				$scope.searchDisplay[column] = false;
+			}
+			return;
+		}
 	};
 
 	$scope.initSearchDisplay = function (){

@@ -5,6 +5,32 @@
 	<h1> Explore</h1>
 	<div  class="container-fluid" >
 		<div class="row">
+			<p class="btn btn-primary" ng-click="search()" ng-if="search.primary && search.value && !searched">Search</p>
+			<p class="btn btn-warning" ng-click="clearSearch()" ng-if="searched"> Clear Search</p><br>
+		
+			<div class="col-md-12" ng-if="searchResult.length">
+				Paste: <br> <b> {{query}} </b> <br>
+				<a href="https://dataclips.heroku.com/clips/new?autosave=true">  To Create Dataclip</a> <br>
+				<div ng-repeat="column in experimentColumns" class="col-md-2" ng-if="searchDisplay[column]">
+					<b>{{column.split('_').join(' ').toTitleCase()}} </b><br>
+					<div ng-repeat="result in searchResult">
+						<t ng-if="column!=='inlet_concentration'">{{result[column]}}</t>
+						<t ng-if="column==='inlet_concentration'">{{result.conc_inlet}}</t>
+					</div>
+				</div>
+				<div ng-repeat="column in measureColumns" class="col-md-2" ng-if="searchDisplay[column]">
+					<b>{{column.split('_').join(' ').toTitleCase()}} </b> <br>
+					<div ng-repeat="result in searchResult">
+						{{result[getMeasureColumnName(column)]}}
+					</div>
+				</div>
+				<div ng-repeat="column in tagColumns" class="col-md-2" ng-if="searchDisplay[column]">
+					<b>{{column.split('_').join(' ').toTitleCase()}} </b><br>
+					<div ng-repeat="result in searchResult">
+						{{result[getMeasureColumnName(column)]}}
+					</div>
+				</div>
+			</div>
 			<div class="col-md-3">
 				Primary Search By: <br> 
 				<select class="form-control" ng-model="search.primary" ng-change="setPrimarySearchArray()">
@@ -28,52 +54,33 @@
 			        <option value="{{column}}" ng-repeat="column in experimentColumns">{{column.toTitleCase()}}</option>
 			    </select>
 			</div>
-			<div class="col-md-3" style="height: 100px; overflow: scroll;">
-				Display Columns: <br>
+			<div class="col-md-3">
+				Display Columns: <br><br>
 				Catagories <br>
+
+				<input type="checkbox" ng-click="checkAllExperimentColumns()"> Check All
 				<div class="checkbox" ng-repeat="column in experimentColumns">
 					<label>
 						<input type="checkbox" ng-model="searchDisplay[column]"> {{column.toTitleCase()}}
 					</label>
 				</div><br>
 				Tags <br>
+				<input type="checkbox" ng-click="checkAllTagColumns()"> Check All
 				<div class="checkbox" ng-repeat="tag in tags">
 					<label>
 						<input type="checkbox" ng-model="searchDisplay[tag.name]"> {{tag.name.toTitleCase()}}
 					</label>
 				</div><br>
 				Measures<br>
+				<input type="checkbox" ng-click="checkAllMeasureColumns()"> Check All
 				<div class="checkbox" ng-repeat="measure in measures">
 					<label>
 						<input type="checkbox" ng-model="searchDisplay[measure.name]"> {{measure.name.toTitleCase()}}
 					</label>
 				</div><br>
 			</div>
-			<p class="btn btn-primary" ng-click="search()" ng-if="search.primary && search.value && !searched">Search</p>
-			<p class="btn btn-warning" ng-click="clearSearch()" ng-if="searched"> Clear Search</p>
+
 		</div>
-		<div class="row" ng-if="searchResult.length">
-			Paste: <br> <b> {{query}} </b> <br>
-			<a href="https://dataclips.heroku.com/clips/new?autosave=true">  To Create Dataclip</a> <br>
-			<div ng-repeat="column in experimentColumns" class="col-md-2" ng-if="searchDisplay[column]">
-				<b>{{column.split('_').join(' ').toTitleCase()}} </b><br>
-				<div ng-repeat="result in searchResult">
-					<t ng-if="column!=='inlet_concentration'">{{result[column]}}</t>
-					<t ng-if="column==='inlet_concentration'">{{result.conc_inlet}}</t>
-				</div>
-			</div>
-			<div ng-repeat="column in measureColumns" class="col-md-2" ng-if="searchDisplay[column]">
-				<b>{{column.split('_').join(' ').toTitleCase()}} </b> <br>
-				<div ng-repeat="result in searchResult">
-					{{result[getMeasureColumnName(column)]}}
-				</div>
-			</div>
-			<div ng-repeat="column in tagColumns" class="col-md-2" ng-if="searchDisplay[column]">
-				<b>{{column.split('_').join(' ').toTitleCase()}} </b><br>
-				<div ng-repeat="result in searchResult">
-					{{result[getMeasureColumnName(column)]}}
-				</div>
-			</div>
-		</div>
+
 	</div>
 </div>
