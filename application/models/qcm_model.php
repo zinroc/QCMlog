@@ -211,9 +211,9 @@ class Qcm_Model extends CI_MODEL {
 		}
 	}
 
-	function addMeasure ($name){
-		$sql = "INSERT INTO measures (id, name) VALUES (DEFAULT, ?)";
-		$arr = array("name"=>$name);
+	function addMeasure ($name, $description){
+		$sql = "INSERT INTO measures (id, name, description) VALUES (DEFAULT, ?, ?)";
+		$arr = array("name"=>$name, "description"=>$description);
 		$result = $this->db->query($sql, $arr);
 
 		if($result){

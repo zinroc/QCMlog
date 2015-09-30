@@ -128,8 +128,8 @@ angular.module('App.services', []).factory('gameAPIservice', function($http) {
         return this.getJSONWithParams("welcome", "addTag", {"name": name});
     };
 
-    gameAPI.addMeasure = function (name){
-        return this.getJSONWithParams("welcome", "addMeasure", {"name": name});
+    gameAPI.addMeasure = function (name, description){
+        return this.getJSONWithParams("welcome", "addMeasure", {"name": name, "description": description});
     };
 
     gameAPI.addSolvent = function (name){

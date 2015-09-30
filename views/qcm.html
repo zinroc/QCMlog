@@ -183,9 +183,12 @@
 
 				<div ng-repeat="index in tagIndex">
 					<div ng-if="!input.tag">
-						<select class="form-control" ng-model="tagVals[index].name">
-			            	<option ng-selected="!tagVals[index].name" value=false>---View Tags---</option>
-			                <option value="{{tag.name}}" ng-repeat="tag in tags" ng-selected="tag.name===tagVals[index].name">{{tag.name.toTitleCase()}}</option>
+						<select 
+							class="form-control" 
+							ng-model="tagVals[index]"
+							ng-options = "tag as tag.name for tag in tags track by tag.name"
+						>
+
 			            </select>
 					</div>
 				</div>
@@ -212,9 +215,10 @@
 
 				<div ng-repeat="index in measIndex">
 					<div ng-if="!input.measure">
-						<select class="form-control" ng-model="measVals[index].name">
-			            	<option ng-selected="!measVals[index].name" value=false>---View Parameters---</option>
-			                <option value="{{measure.name}}" ng-repeat="measure in measures" ng-selected="measure.name===measVals[index].name">{{measure.name.toTitleCase()}}</option>
+						<select 
+							class="form-control {{index}}measIndex" 
+							ng-model="measVals[index]"
+							ng-options="measure as measure.name for measure in measures track by measure.name" ng-mouseover="activatePopover(index)" ng-mouseleave="deactivatePopover()"  data-toggle="popover" data-placement="top" data-title="Description:" data-content="{{measVals[index].description}}">
 			            </select>
 			    		<div ng-if="measVals[index].name">
 			    			Value: <input type="number" step="0.0001" ng-model="measVals[index].val"/>
@@ -225,11 +229,13 @@
 		        <p class="btn btn-primary" ng-click="increaseMeasures()"> + </p>
 		        <p ng-if="maxMeasLength > 0" class="btn btn-primary" ng-click="decreaseMeasures()"> - </p>
 
-			    <p ng-if="!input.measure"  class="btn btn-primary" ng-click="showMeasureInput()"> Design New Parameter</p>
+			    <p ng-if="!input.measure"  class="btn btn-primary" ng-click="showMeasureInput()"> Design New Measure </p>
 
 
 		        <div id="addBox" ng-if="input.measure">
 					Name: <input type="text" ng-model="measure.name"/><br>
+					Description: <input type="text" ng-model="measure.desc"/>
+					<br>
 					<div ng-if="measure.name && input.measure">
 						<p class="btn btn-primary" ng-click="addMeasure()"> Create Measure </p>
 					</div>

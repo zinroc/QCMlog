@@ -52,6 +52,7 @@ $heroku_postgre_url = parse_url ("postgres://vvfueeuhzgkqdf:_pM5zU-JyZYju1Ibppo4
 
 if ($_SERVER['REMOTE_ADDR'] === '127.0.0.1'/* || $_SERVER['SERVER_NAME'] === "localhost"*/ ) {
 	/* all values filled in from Heroku query */
+	
 	$db['default']['hostname'] = "localhost";
 	$db['default']['username'] = "zinroc";
 	$db['default']['password'] = "";

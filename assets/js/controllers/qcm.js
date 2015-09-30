@@ -530,9 +530,9 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
     };
 
     $scope.addMeasure = function (){
-    	console.log($scope.measure.name);
+    	console.log($scope.measure.name, $scope.measure.desc);
     	
-    	gameAPIservice.addMeasure($scope.measure.name).success(function (response){
+    	gameAPIservice.addMeasure($scope.measure.name, $scope.measure.desc).success(function (response){
     		"use strict";
 
     		console.log("Tried to add measure");
@@ -545,7 +545,17 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
     	$scope.input.measure = false;
 	
     };
+   
 
+    $scope.activatePopover = function (index){
+    	var tag = "."+index+"measIndex";
+		$(tag).popover();
+		$(tag).popover('show');
+    };
+
+    $scope.deactivatePopover = function (){
+		$('[data-toggle="popover"]').popover('hide');
+    };
     $scope.addTag = function (){
     	console.log($scope.tagPara.name);
 
