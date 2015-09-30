@@ -2,6 +2,18 @@
 
 class Qcm_Model extends CI_MODEL {
 
+	function getUnderscoreName ($name){
+		$result = trim($name);
+		$result = str_replace(' ', '_', $result);
+		$result = str_replace('(', '_', $result);
+		$result = str_replace(')', '', $result);
+		$result = str_replace(',', '_', $result);
+		$result = str_replace('-', '_', $result);
+		$result = strtolower($result);
+		$result = strip_tags($result);
+		return $result;
+	}
+
 	function searchMeasure ($exp_id, $measure){
 		$query = $this->db->get_where("experiment_measures", array("experiment"=>$exp_id, "measure"=>$measure));
 		if ($query->num_rows()===0){
@@ -70,6 +82,17 @@ class Qcm_Model extends CI_MODEL {
 		$sql = "DELETE FROM experiment_tags WHERE experiment=?";
 		$arr = array("experiment"=>$id);
 		$this->db->query($sql, $arr);
+
+		$query = $this->db->get("tags");
+		$tags = $query->result_array();
+
+		foreach ($tags as $tag){
+			$nameNoSpace = $this->getUnderscoreName($tag['name']);
+
+			$sql = "UPDATE experiment_tag_columns SET ".$nameNoSpace."=false WHERE experiment=?";
+			$arr = array($id);
+			$this->db->query($sql, $arr);
+		}
 		return true;
 	}
 
@@ -77,6 +100,18 @@ class Qcm_Model extends CI_MODEL {
 		$sql = "DELETE FROM experiment_measures WHERE experiment=?";
 		$arr = array("experiment"=>$id);
 		$this->db->query($sql, $arr);
+
+		$query = $this->db->get("measures");
+		$measures = $query->result_array();
+
+		foreach($measures as $measure){
+			$nameNoSpace = $this->getUnderscoreName($measure['name']);
+
+			$sql = "UPDATE experiment_measure_columns SET ".$nameNoSpace."=NULL WHERE experiment=?";
+			$arr = array($id);
+			$this->db->query($sql, $arr);
+		}
+
 		return true;
 	}
 
@@ -175,6 +210,11 @@ class Qcm_Model extends CI_MODEL {
 
 	function updateExperiment ($id, $description, $date, $coating, $solution, $sensor, $module, 
         $conc, $flow) {
+
+		if($date ==='null'){
+			$date = null;
+		}
+
 		$sql = "UPDATE experiments SET description=?, date=?, coating=?, solution=?, sensor=?, module=?, conc_inlet=?, flow_rate=? WHERE id=?";
 		$arr = array("description"=>$description, "date"=>$date, "coating"=>$coating, "solution"=>$solution,
 			"sensor"=>$sensor, "module"=>$module, "conc_inlet"=>$conc, "flow_rate"=>$flow, "id"=>$id);
@@ -184,15 +224,30 @@ class Qcm_Model extends CI_MODEL {
 
 	function addExperiment ($description, $date, $coating, $solution, $sensor, $module, 
         $conc, $flow) {
+
+		if ($date ==='null'){
+			$date = null;
+		}
+
 		$sql = "INSERT INTO experiments (id, description, date, coating, solution, sensor, 
 			module, conc_inlet, flow_rate) VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$arr = array("description"=>$description, "date"=>$date, "coating"=>$coating, "solution"=>$solution,
 			"sensor"=>$sensor, "module"=>$module, "conc_inlet"=>$conc, "flow_rate"=>$flow);
 		$this->db->query($sql, $arr);
 
+
 		$sql = "SELECT * FROM experiments WHERE id IN (SELECT max(id) FROM experiments)";
 		$query = $this->db->query($sql);
 		$result = $query->row_array();
+
+
+		$sql = "INSERT INTO experiment_tag_columns (id, experiment) VALUES (DEFAULT, ?)";
+		$arr = array("experiment"=>$result['id']);
+		$this->db->query($sql, $arr);
+
+		$sql = "INSERT INTO experiment_measure_columns (id, experiment) VALUES (DEFAULT, ?)";
+		$arr = array("experiment"=>$result['id']);
+		$this->db->query($sql, $arr);
 
 		return $result['id'];
 	}
@@ -201,22 +256,55 @@ class Qcm_Model extends CI_MODEL {
 		$sql = "INSERT INTO experiment_tags (id, experiment, tag) VALUES (DEFAULT, ?, ?)";
 		$arr = array("experiment"=>$id, "tag"=>$tag);
 		$query = $this->db->query($sql, $arr);
-		if ($query){
-			return true;
-		} else {
+		if (!$query){
 			return false;
 		}
+
+		//----This is only for experiment entries grandfathered from before experiment_tag_columns table existance
+		$query = $this->db->get_where("experiment_tag_columns", array("experiment"=>$id));
+		if ($query->num_rows() === 0){
+			$sql = "INSERT INTO experiment_tag_columns (id, experiment) VALUES (DEFAULT, ?)";
+			$arr = array("experiment"=>$id);
+			$this->db->query($sql, $arr);
+		}
+		//----
+
+		$nameNoSpace = $this->getUnderscoreName($tag);
+
+		$sql = "UPDATE experiment_tag_columns SET ".$nameNoSpace."=true WHERE experiment=?";
+		$arr = array($id);
+		$this->db->query($sql, $arr);
+
+		return true;
 	}
+
+
 
 	function addExperimentMeasure ($id, $measure, $value){
 		$sql ="INSERT INTO experiment_measures (id, experiment, measure, value) VALUES (DEFAULT, ?, ?, ?)";
 		$arr = array("experiment"=>$id, "measure"=>$measure, "value"=>$value);
 		$query = $this->db->query($sql, $arr);
-		if ($query){
-			return true;
-		} else {
+		if (!$query){
 			return false;
 		}
+
+		//----This is only for experiment entries grandfathered from before experiment_measure_columns table existance
+		$query = $this->db->get_where("experiment_measure_columns", array("experiment"=>$id));
+		if ($query->num_rows() === 0){
+			$sql = "INSERT INTO experiment_measure_columns (id, experiment) VALUES (DEFAULT, ?)";
+			$arr = array("experiment"=>$id);
+			$this->db->query($sql, $arr);
+		}
+		//----
+
+		$nameNoSpace = $this->getUnderscoreName($measure);
+
+		$sql = "UPDATE experiment_measure_columns SET ".$nameNoSpace."=? WHERE experiment=?";
+		$arr = array($value, $id);
+		$this->db->query($sql, $arr);
+
+		
+		return true;
 	}
 
 	function addMeasure ($name, $description, $units){
@@ -224,11 +312,17 @@ class Qcm_Model extends CI_MODEL {
 		$arr = array("name"=>$name, "description"=>$description, "units"=>$units);
 		$result = $this->db->query($sql, $arr);
 
-		if($result){
-			return true;
-		} else{
+		if(!$result){
 			return false;
 		}
+
+		$nameNoSpace = $this->getUnderscoreName($name);
+
+		$sql = "ALTER TABLE experiment_measure_columns ADD COLUMN ".$nameNoSpace." FLOAT DEFAULT NULL";
+		$result = $this->db->query($sql);
+
+		return $result;
+
 	}
 
 
@@ -237,11 +331,17 @@ class Qcm_Model extends CI_MODEL {
 		$arr = array("name"=>$name);
 		$result = $this->db->query($sql, $arr);
 
-		if($result){
-			return true;
-		} else{
+		if(!$result){
 			return false;
 		}
+
+		$nameNoSpace = getUnderscoreName($name);
+
+		$sql = "ALTER TABLE experiment_tag_columns ADD COLUMN ".$nameNoSpace." BOOLEAN DEFAULT false";
+		$result = $this->db->query($sql);
+
+		return $result;
+
 	}
 
 	function addSolvent ($name){
