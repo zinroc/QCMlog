@@ -173,20 +173,20 @@ class Qcm_Model extends CI_MODEL {
 
 	}
 
-	function updateExperiment ($id, $description, $coating, $solution, $sensor, $module, 
+	function updateExperiment ($id, $description, $date, $coating, $solution, $sensor, $module, 
         $conc, $flow) {
-		$sql = "UPDATE experiments SET description=?, coating=?, solution=?, sensor=?, module=?, conc_inlet=?, flow_rate=? WHERE id=?";
-		$arr = array("description"=>$description, "coating"=>$coating, "solution"=>$solution,
+		$sql = "UPDATE experiments SET description=?, date=?, coating=?, solution=?, sensor=?, module=?, conc_inlet=?, flow_rate=? WHERE id=?";
+		$arr = array("description"=>$description, "date"=>$date, "coating"=>$coating, "solution"=>$solution,
 			"sensor"=>$sensor, "module"=>$module, "conc_inlet"=>$conc, "flow_rate"=>$flow, "id"=>$id);
 		$this->db->query($sql, $arr);
 		return true;
 	}
 
-	function addExperiment ($description, $coating, $solution, $sensor, $module, 
+	function addExperiment ($description, $date, $coating, $solution, $sensor, $module, 
         $conc, $flow) {
-		$sql = "INSERT INTO experiments (id, description, coating, solution, sensor, 
-			module, conc_inlet, flow_rate) VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?)";
-		$arr = array("description"=>$description, "coating"=>$coating, "solution"=>$solution,
+		$sql = "INSERT INTO experiments (id, description, date, coating, solution, sensor, 
+			module, conc_inlet, flow_rate) VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$arr = array("description"=>$description, "date"=>$date, "coating"=>$coating, "solution"=>$solution,
 			"sensor"=>$sensor, "module"=>$module, "conc_inlet"=>$conc, "flow_rate"=>$flow);
 		$this->db->query($sql, $arr);
 

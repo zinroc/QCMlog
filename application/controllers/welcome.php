@@ -135,6 +135,7 @@ class Welcome extends CI_Controller {
     public function updateExperiment() {
         $id = $this->input->post("id");
         $description = $this->input->post("description");
+        $date = $this->input->post("date");
         $coating = $this->input->post("coating");
         $solution = $this->input->post("solution");
         $sensor = $this->input->post("sensor");
@@ -144,8 +145,8 @@ class Welcome extends CI_Controller {
 
 
         $this->load->model('qcm_model');
-        $result = $this->qcm_model->updateExperiment($id, $description, $coating, $solution, $sensor, $module, 
-            $conc, $flow);
+        $result = $this->qcm_model->updateExperiment($id, $description, $date, $coating, $solution, 
+            $sensor, $module, $conc, $flow);
         if ($result){
             $this->printJSONSuccess("updated experiment " . $id);
         } else {
@@ -182,6 +183,7 @@ class Welcome extends CI_Controller {
 
     public function addExperiment() {
         $description = $this->input->post("description");
+        $date = $this->input->post("date");
         $coating = $this->input->post("coating");
         $solution = $this->input->post("solution");
         $sensor = $this->input->post("sensor");
@@ -191,7 +193,7 @@ class Welcome extends CI_Controller {
 
 
         $this->load->model('qcm_model');
-        $result = $this->qcm_model->addExperiment($description, $coating, $solution, $sensor, $module, 
+        $result = $this->qcm_model->addExperiment($description, $date, $coating, $solution, $sensor, $module, 
             $conc, $flow);
         if ($result){
             $this->printJSON(array("id"=>$result));

@@ -104,14 +104,15 @@ angular.module('App.services', []).factory('gameAPIservice', function($http) {
             "thickness": thickness, "thickness_var": thickness_var, "rms": rms});
     };
 
-    gameAPI.updateExperiment = function (id, description, coating, solution, sensor, module, conc, flow){
-        return this.getJSONWithParams("welcome", "updateExperiment", {"id": id, "description": description, "coating": coating,
-            "solution": solution, "sensor": sensor, "module": module, "conc": conc, "flow": flow});
+    gameAPI.updateExperiment = function (id, description, date, coating, solution, sensor, module, conc, flow){
+        return this.getJSONWithParams("welcome", "updateExperiment", {"id": id, "description": description, "date": date, 
+            "coating": coating, "solution": solution, "sensor": sensor, "module": module, "conc": conc, 
+            "flow": flow});
     }
 
 
-    gameAPI.addExperiment = function (description, coating, solution, sensor, module, conc, flow){
-    	return this.getJSONWithParams("welcome", "addExperiment", {"description": description, "coating": coating,
+    gameAPI.addExperiment = function (description, date, coating, solution, sensor, module, conc, flow){
+    	return this.getJSONWithParams("welcome", "addExperiment", {"description": description, "date": date, "coating": coating,
     		"solution": solution, "sensor": sensor, "module": module, "conc": conc, "flow": flow});
     }
 

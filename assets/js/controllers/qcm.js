@@ -165,6 +165,7 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 		$scope.expSensor.name = $scope.loadedExperiment.sensor;
 		$scope.para.flow = parseInt($scope.loadedExperiment.flow_rate);
 		$scope.para.conc = parseFloat($scope.loadedExperiment.conc_inlet);
+		$scope.para.date = $scope.loadedExperiment.date;
 		$scope.loaded.parametersPlaced = true;
 	};
 
@@ -634,11 +635,11 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     	$scope.loading.experimentUpdate = true;
 
-		console.log("UPDATE EXPERIMENT WITH PARAMS:", $scope.editExperiment.id, $scope.para.desc, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
+		console.log("UPDATE EXPERIMENT WITH PARAMS:", $scope.editExperiment.id, $scope.para.desc, $scope.para.date, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
 			$scope.para.conc, $scope.para.flow);
 
 
-		gameAPIservice.updateExperiment($scope.editExperiment.id, $scope.para.desc, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
+		gameAPIservice.updateExperiment($scope.editExperiment.id, $scope.para.desc, $scope.para.date, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
 		$scope.para.conc, $scope.para.flow).success(function (response){
 			"use strict";
 
@@ -704,10 +705,10 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 
     	$scope.loading.experimentAdd = true;
 
-		console.log("ADD EXPERIMENT WITH PARAMS:", $scope.para.desc, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
+		console.log("ADD EXPERIMENT WITH PARAMS:", $scope.para.desc, $scope.para.date, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
 			$scope.para.conc, $scope.para.flow);
 
-		gameAPIservice.addExperiment($scope.para.desc, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
+		gameAPIservice.addExperiment($scope.para.desc, $scope.para.date, $scope.expCoating.name, $scope.expSolution.name, $scope.expSensor.name, $scope.expModule.name,
 		$scope.para.conc, $scope.para.flow).success(function (response){
 			"use strict";
 
