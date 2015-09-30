@@ -1,29 +1,40 @@
 angular.module('App.controllers').controller('exploreController', function ($scope, gameAPIservice, $timeout) {
 	"use strict";
 
-	$scope.search = {};
-	$scope.search.primary = null;
-	$scope.search.order = "ids";
 
-	$scope.primarySearch = {};
 
-	$scope.searchResult = {};
-	$scope.measResults = {};
-	$scope.tagResults = {};
+	$scope.init = function (){
+		$scope.search = {};
+		$scope.search.primary = null;
+		$scope.search.order = "ids";
 
-	$scope.searchDisplay = [];
+		$scope.primarySearch = {};
 
-	$scope.error = {};
-	$scope.error.msg = null;
-	$scope.success = {};
-	$scope.success.msg = null;
+		$scope.searchResult = {};
+		$scope.measResults = {};
+		$scope.tagResults = {};
 
-	$scope.query = "";
+		$scope.searchDisplay = [];
 
-	$scope.experimentColumns = ['id', 'coating', 'flow_rate', 'sensor', 'module', 'solution', 'inlet_concentration'];
-	$scope.measureColumns = [];
-	$scope.tagColumns = [];
+		$scope.error = {};
+		$scope.error.msg = null;
+		$scope.success = {};
+		$scope.success.msg = null;
 
+		$scope.query = "";
+
+		$scope.experimentColumns = ['id', 'date', 'coating', 'flow_rate', 'sensor', 'module', 'solution', 'inlet_concentration'];
+		$scope.measureColumns = [];
+		$scope.tagColumns = [];
+
+		$scope.searched = false;
+	};
+	$scope.init();
+
+	$scope.clearSearch = function (){
+
+		location.reload();
+	};
 
 	$scope.initSearchDisplay = function (){
 		for (var i=0; i<$scope.experimentColumns.length; i++){
@@ -197,8 +208,22 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 		return;
 	};
 
+	$scope.getMeasureColumnName = function (name){
+		name = name.trim();
+		name = name.replace(/ /g, "_");
+		name = name.replace('(', "_");
+		name = name.replace(')', "");
+		name = name.replace(/,/g, "_");
+		name = name.replace(/-/g, "_");
+		name = name.toLowerCase();
+		//TODO strip_tags
+		return name;
+	};
 
     $scope.search = function (){
+
+
+
     	console.log($scope.search.primary, $scope.search.value);
 		var column = $scope.search.primary.replace(/(<([^>]+)>)/ig, "");
 		column = column.slice(0, -1);
@@ -207,7 +232,7 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 		if (order ==='inlet_concentration'){
 			order = 'conc_inlet';
 		}
-		var order_string = "ORDER BY ("+order+");";
+		var order_string = "ORDER BY "+order+";";
 		var query = "";
 
 		var catagoryDisplay = "";
@@ -215,28 +240,46 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 			var cat = $scope.experimentColumns[i];
 			if ($scope.searchDisplay[cat]){
 				if (cat !== 'inlet_concentration'){
-					catagoryDisplay += " " + cat + ",";
+					catagoryDisplay += " experiments." + cat + ",";
 				} else {
-					catagoryDisplay += " conc_inlet,";
+					catagoryDisplay += " experiments.conc_inlet,";
 				}
 			}
 		}
-		catagoryDisplay = catagoryDisplay.slice(0, -1);
 
+		var measureDisplay = "";
 
     	for (var i=0; i<$scope.measures.length; i++){
     		var measure = $scope.measures[i];
     		if ($scope.searchDisplay[measure.name]){
+	    		if (measureDisplay===""){
+	    			measureDisplay = " INNER JOIN experiment_measure_columns ON experiments.id=experiment_measure_columns.experiment ";
+	    		}
+	    		var measureName = $scope.getMeasureColumnName(measure.name);
     			$scope.measureColumns.push(measure.name);
+
+	    		catagoryDisplay += " experiment_measure_columns."+measureName+",";
+
     		}
     	}
 
+
+		var tagDisplay = "";
     	for (var i=0; i<$scope.tags.length; i++){
     		var tag = $scope.tags[i];
     		if ($scope.searchDisplay[tag.name]){
+
+    			if (tagDisplay===""){
+    				tagDisplay = " RIGHT OUTER JOIN experiment_tag_columns ON experiments.id=experiment_tag_columns.experiment ";
+    			}
+    			var tagName = $scope.getMeasureColumnName(tag.name);
     			$scope.tagColumns.push(tag.name);
+
+    			catagoryDisplay +=" experiment_tag_columns."+tagName+",";
     		}
     	}
+
+		catagoryDisplay = catagoryDisplay.slice(0, -1);
 
     	for (var i=0; i<$scope.tagColumns.length; i++){
     		var tagColumn = $scope.tagColumns[i];
@@ -249,11 +292,11 @@ angular.module('App.controllers').controller('exploreController', function ($sco
     	}
 
 		if (column==='measure' || column==='tag'){
-			query = "SELECT id," + catagoryDisplay + " FROM experiments WHERE id IN (SELECT experiment FROM experiment_"+column+"s WHERE "+column+"='"+value+"') " + order_string;
+			query = "SELECT experiments.id," + catagoryDisplay + " FROM experiments "+measureDisplay+tagDisplay+" WHERE experiments.id IN (SELECT experiment FROM experiment_"+column+"s WHERE "+column+"='"+value+"') " + order_string;
 		} else if (column==='solvent') {
-			query = "SELECT id," + catagoryDisplay + " FROM experiments WHERE coating IN (SELECT name FROM coatings WHERE "+column+"='"+value+"') " + order_string;
+			query = "SELECT experiments.id," + catagoryDisplay + " FROM experiments "+measureDisplay+tagDisplay+" WHERE experiments.coating IN (SELECT name FROM coatings WHERE "+column+"='"+value+"') " + order_string;
 		} else {
-    		query = "SELECT id," + catagoryDisplay + " FROM experiments WHERE "+column+"='"+value+"' " + order_string;
+    		query = "SELECT experiments.id," + catagoryDisplay + " FROM experiments "+measureDisplay+tagDisplay+" WHERE experiments."+column+"='"+value+"' " + order_string;
     	}
     	$scope.query = query;
 
@@ -269,51 +312,10 @@ angular.module('App.controllers').controller('exploreController', function ($sco
 	            $scope.success.msg = "fetched search result";
 	            $scope.error.msg = null;
 	            $scope.searchResult = response.search;
+    			$scope.searched = true;
 
-	            if ($scope.measureColumns.length > 0){
-		            for (var i=0; i<$scope.searchResult.length; i++){
-		            	for (var j=0; j<$scope.measureColumns.length; j++){
-		            		gameAPIservice.searchMeasure($scope.searchResult[i].id, $scope.measureColumns[j]).success(function (response){
-		            			"use strict";
-		            			console.log("Tried to search for measures");
-		            			console.log(response);
-						        if (response.hasOwnProperty('status') && response.status === 'error') {
-						            $scope.error.msg = response.msg;
-						            $scope.success.msg = null;
-
-						        } else {
-						            $scope.success.msg = "fetched search measures";
-						            $scope.error.msg = null;
-						            $scope.measResults[response.measure][response.experiment] = response.value;
-		            			}
-		            		});
-		            	}
-		            }
-	        	}
-	            if ($scope.tagColumns.length > 0){
-		            for (var i=0; i<$scope.searchResult.length; i++){
-		            	for (var j=0; j<$scope.tagColumns.length; j++){
-		            		gameAPIservice.searchTag($scope.searchResult[i].id, $scope.tagColumns[j]).success(function (response){
-		            			"use strict";
-		            			console.log("Tried to search for tags");
-		            			console.log(response);
-						        if (response.hasOwnProperty('status') && response.status === 'error') {
-						            $scope.error.msg = response.msg;
-						            $scope.success.msg = null;
-
-						        } else {
-						            $scope.success.msg = "fetched search tags";
-						            $scope.error.msg = null;
-						            $scope.tagResults[response.tag][response.experiment] = response.value;
-		            			}
-		            		});
-		            	}
-		            }
-
-	        	}
 	        }
     	});
-
     };
 
     $scope.initSearchDisplay();

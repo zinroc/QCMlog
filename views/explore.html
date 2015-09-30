@@ -49,7 +49,8 @@
 					</label>
 				</div><br>
 			</div>
-			<p class="btn btn-primary" ng-click="search()" ng-if="search.primary && search.value">Search</p>
+			<p class="btn btn-primary" ng-click="search()" ng-if="search.primary && search.value && !searched">Search</p>
+			<p class="btn btn-warning" ng-click="clearSearch()" ng-if="searched"> Clear Search</p>
 		</div>
 		<div class="row" ng-if="searchResult.length">
 			Paste: <br> <b> {{query}} </b> <br>
@@ -64,13 +65,13 @@
 			<div ng-repeat="column in measureColumns" class="col-md-2" ng-if="searchDisplay[column]">
 				<b>{{column.split('_').join(' ').toTitleCase()}} </b> <br>
 				<div ng-repeat="result in searchResult">
-					{{measResults[column][result.id]}}
+					{{result[getMeasureColumnName(column)]}}
 				</div>
 			</div>
 			<div ng-repeat="column in tagColumns" class="col-md-2" ng-if="searchDisplay[column]">
 				<b>{{column.split('_').join(' ').toTitleCase()}} </b><br>
-				<div ng-repeat="result in searchResult"><!-- May bug if fetch is slow and [result.id] is undefined-->
-					{{tagResults[column][result.id]}}
+				<div ng-repeat="result in searchResult">
+					{{result[getMeasureColumnName(column)]}}
 				</div>
 			</div>
 		</div>
