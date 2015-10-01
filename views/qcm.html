@@ -199,8 +199,9 @@
 					</div>
 				</div>
 
-		        <p class="btn btn-primary" ng-click="increaseTags()"> + </p>
-		        <p ng-if="maxTagLength > 0" class="btn btn-primary" ng-click="decreaseTags()"> - </p>
+		        <p id="increaseTag"
+		        class="btn btn-primary" ng-click="increaseTags()" ng-enter="increaseTags()" tabindex="0"> + </p>
+		        <p id="decreaseTag" ng-if="maxTagLength > 0" class="btn btn-primary" ng-click="decreaseTags()"> - </p>
 
 			    <p ng-if="!input.tag" class="btn btn-primary" ng-click="showTagInput()"> Design New Tag</p>
 
@@ -232,8 +233,8 @@
 					</div>
 				</div>
 
-		        <p class="btn btn-primary" ng-click="increaseMeasures()"> + </p>
-		        <p ng-if="maxMeasLength > 0" class="btn btn-primary" ng-click="decreaseMeasures()"> - </p>
+		        <p id="increaseMeasure" class="btn btn-primary" ng-click="increaseMeasures()" ng-enter="increaseMeasures()" tabindex="0"> + </p>
+		        <p id="decreaseMeasure" ng-if="maxMeasLength > 0" class="btn btn-primary" ng-click="decreaseMeasures()"> - </p>
 
 			    <p ng-if="!input.measure"  class="btn btn-primary" ng-click="showMeasureInput()"> Design New Measure </p>
 

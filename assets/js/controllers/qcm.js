@@ -1,4 +1,16 @@
-angular.module('App.controllers').controller('qcmController', function ($scope, gameAPIservice, $timeout) {
+angular.module('App.controllers').directive('ngEnter', function (){
+    return function(scope, element, attrs) {
+        element.bind("keydown keypress", function(event) {
+            if(event.which === 13) {
+                scope.$apply(function(){
+                    scope.$eval(attrs.ngEnter, {'event': event});
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
+}).controller('qcmController', function ($scope, gameAPIservice, $timeout) {
 	"use strict";
 
 	$scope.editExperiment = {};
@@ -76,7 +88,6 @@ angular.module('App.controllers').controller('qcmController', function ($scope, 
 	$scope.maxTagLength = 0;
 
 	$scope.success = {};
-
 
 	$scope.resetLoadingScreen = function (){
 		$scope.loading.experimentAdd = false;
