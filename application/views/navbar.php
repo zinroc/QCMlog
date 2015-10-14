@@ -32,6 +32,7 @@ function is_active($navbar_item) {
                         array("text" => "Home", "href" => "welcome/home"),
                         array("text" => "Record", "href" => "welcome/QCM"), 
                         array("text" => "Explore", "href" => "welcome/explore"), 
+                        array("text" => "Modeling", "href" => "welcome/model"),
 
                     );
 

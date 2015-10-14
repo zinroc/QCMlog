@@ -94,6 +94,19 @@ class Welcome extends CI_Controller {
 
     }
 
+    /**
+    *   Go to the Modeling page
+    */
+    public function model(){
+
+        $data = array(
+            "page_title" => "model",
+            "extra_css" => array(asset_url() . "/css/model.css"),
+            "extra_js" => array(asset_url() . "/js/controllers/model.js"),
+            "view" => "model"
+        );
+        $this->load->view ('master', array("data" => $data));
+    }
 
     public function editCoating() {
         $name = $this->input->post("name");
