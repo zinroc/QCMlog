@@ -2,6 +2,7 @@
 
 class Qcm_Model extends CI_MODEL {
 
+
 	function getUnderscoreName ($name){
 		$result = trim($name);
 		$result = str_replace(' ', '_', $result);
@@ -51,9 +52,19 @@ class Qcm_Model extends CI_MODEL {
 
 	//make sure this cannot have an SQL injection
 	function search ($sql){
-		//echo($sql);
 		$query = $this->db->query($sql);
 		$result = $query->result_array();
+		
+		$myfile = new SplFileObject("dataClips/test.csv", "w");
+
+		$columns = array_keys($result[0]);
+
+		$myfile->fputcsv($columns);
+
+		foreach($result as $row){
+			$myfile->fputcsv($row);
+		}
+
 		return $result;
 	}
 

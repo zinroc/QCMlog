@@ -9,8 +9,7 @@
 			<p class="btn btn-warning" ng-click="clearSearch()" ng-if="searched"> Clear Search</p><br>
 		
 			<div class="col-md-12" ng-if="searchResult.length">
-				Paste: <br> <b> {{query}} </b> <br>
-				<a href="https://dataclips.heroku.com/clips/new?autosave=true">  To Create Dataclip</a> <br>
+				<a href="/QCMlog/dataClips/test.csv">Download CSV</a> <br>
 				<div ng-repeat="column in experimentColumns" class="col-md-2" ng-if="searchDisplay[column]">
 					<b>{{column.split('_').join(' ').toTitleCase()}} </b><br>
 					<div ng-repeat="result in searchResult">
