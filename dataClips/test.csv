@@ -1,12 +1,12 @@
-id,date,coating,flow_rate,sensor,module,solution,conc_inlet
-14,2013-01-08,"hardwood lignin",50,B8-S2,2,"Ph5 NaOAC + Xyl11A",0.5
-19,2013-02-12,"hardwood lignin",50,"B5 - S1",1,"Ph5 NaOAC + Xyl11A",0.5
-20,2013-02-12,"hardwood lignin",50,"B5 - S2",2,"Ph5 NaOAC + Xyl11A",0.5
-86,2013-06-21,"hardwood lignin",50,"B3 - S1",2,"Ph5 NaOAC + Xyl11A",0.5
-91,2013-06-22,"hardwood lignin",50,"B3 - S5",3,"Ph5 NaOAC + Xyl11A",0.5
-94,2013-06-23,"hardwood lignin",50,"B9 - S4",1,"Ph5 NaOAC + Xyl11A",0.5
-96,2013-06-23,"hardwood lignin",50,"B9 - S1",2,"Ph5 NaOAC + Xyl11A",0.5
-97,2013-06-23,"hardwood lignin",50,"B9 - S5",2,"Ph5 NaOAC + Xyl11A",0.5
-99,2015-06-23,"hardwood lignin",50,"B9 - S2",3,"Ph5 NaOAC + Xyl11A",0.5
-102,2015-06-23,"hardwood lignin",50,"B9 - S3",4,"Ph5 NaOAC + Xyl11A",0.5
-106,2015-07-20,"hardwood lignin",50,"B13 - S2",3,"Ph5 NaOAC + Xyl11A",0.5
+id, date, coating, flow_rate, sensor, module, solution, conc_inlet, f_n1_n2 
+14, 2013-01-08, hardwood lignin, 50, B8-S2, 2, Ph5 NaOAC + Xyl11A, 0.5, 0.0005 
+19, 2013-02-12, hardwood lignin, 50, B5 - S1, 1, Ph5 NaOAC + Xyl11A, 0.5, 0 
+20, 2013-02-12, hardwood lignin, 50, B5 - S2, 2, Ph5 NaOAC + Xyl11A, 0.5, 0.0003 
+86, 2013-06-21, hardwood lignin, 50, B3 - S1, 2, Ph5 NaOAC + Xyl11A, 0.5, 0.0002 
+91, 2013-06-22, hardwood lignin, 50, B3 - S5, 3, Ph5 NaOAC + Xyl11A, 0.5,  
+94, 2013-06-23, hardwood lignin, 50, B9 - S4, 1, Ph5 NaOAC + Xyl11A, 0.5, 0.0003 
+96, 2013-06-23, hardwood lignin, 50, B9 - S1, 2, Ph5 NaOAC + Xyl11A, 0.5, 0.0003 
+97, 2013-06-23, hardwood lignin, 50, B9 - S5, 2, Ph5 NaOAC + Xyl11A, 0.5, 0.0003 
+99, 2015-06-23, hardwood lignin, 50, B9 - S2, 3, Ph5 NaOAC + Xyl11A, 0.5, 0.0001 
+102, 2015-06-23, hardwood lignin, 50, B9 - S3, 4, Ph5 NaOAC + Xyl11A, 0.5, 0.0002 
+106, 2015-07-20, hardwood lignin, 50, B13 - S2, 3, Ph5 NaOAC + Xyl11A, 0.5, 0 

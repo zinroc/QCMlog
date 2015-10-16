@@ -55,16 +55,42 @@ class Qcm_Model extends CI_MODEL {
 		$query = $this->db->query($sql);
 		$result = $query->result_array();
 		
-		$myfile = new SplFileObject("dataClips/test.csv", "w");
+		$myfile = fopen("dataClips/test.csv", "w");
+		ftruncate($myfile, 0);
 
 		$columns = array_keys($result[0]);
 
-		$myfile->fputcsv($columns);
+		//fputcsv requires v5.4+ of php, biozone has 5.3
+		//$myfile->fputcsv($columns);
+		//use this for loop instead
+		$heading = false;
+		foreach ($columns as $columnTitle){
+			if(!$heading){
+				$heading = '';
+				$heading = $heading . $columnTitle;
+			} else {
+				$heading = $heading . ", " . $columnTitle;
+
+			}
+		}
+		$heading = $heading . " \n";
+		fwrite($myfile, $heading);
 
 		foreach($result as $row){
-			$myfile->fputcsv($row);
+			$rowString = false;
+			foreach($columns as $columnTitle){
+				if (!$rowString){
+					$rowString = '';
+					$rowString = $rowString . $row[$columnTitle];
+				} else {
+					$rowString = $rowString . ", " . $row[$columnTitle];
+				}
+			}
+			$rowString = $rowString . " \n";
+			fwrite($myfile, $rowString);
 		}
 
+		fclose($myfile);
 		return $result;
 	}
 
